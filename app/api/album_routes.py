@@ -2,11 +2,11 @@ from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import db, Album, Post
 from app.forms import AlbumForm, PostForm
-from .AWS_helpers import error_message, upload_file_to_s3, get_unique_filename, remove_file_from_s3, error_messages
+from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from datetime import datetime
 
 
-album_routes = Blueprint('albums", __name__')
+album_routes = Blueprint("albums", __name__)
 
 # GET ALL ALBUMS
 @album_routes.route('/')
@@ -58,11 +58,11 @@ def create_album():
         album = Album(**new_album)
         db.session.add(album)
         db.session.commit()
-        return album.to_dict(), 201
+        return album.to_dict_descriptive(), 201
     elif form.errors:
-        return error_messages(form.errors), 401
+        return {"errors": form.errors}, 401
     else:
-        return error_message("unknown", "An unknown Error has occured"), 500
+        return {"unknown", "An unknown Error has occured"}, 500
     
 
 
@@ -204,49 +204,3 @@ def add_album_post(id):
 
 
 
-
-
-# EDIT POST FOR ALBUM
-@album_routes.route('/<int:albumid>/posts/<int:postid>', methods=["PUT", "PATCH"])
-@login_required
-def edit_post(albumid, postid):
-    """
-    Adds or removes a post to an album and returns the updated album in a dictionary
-    """
-
-
-
-    # post = [post for post in current_user.posts if post.id == postid]
-    # if post:
-    #     post = post[0]
-
-    #     if request.method == "PUT":
-    #         if post.album_id == albumid:
-    #             return error_message("album", "Cannot add post to album again"), 401
-    #         post.album_id = albumid
-    #     else:
-    #         post.album_id = None
-    #     db.session.add(post)
-    #     db.session.commit()
-    #     return post.to_dict(), 200
-    # else:
-    #     return error_message("post", "Invalid postId"), 403
-    
-
-
-# EDIT POST IMAGE FOR ALBUM
-
-# DELETE POST
-
-
-# GET ALL COMMENTS
-# GET COMMENTS BY ID
-# CREATE COMMENT
-# EDIT COMMENT
-# DELETE COMMENT
-
-# ADD FOLLOW
-# REMOVE FOLLOW
-
-# ADD LIKE
-# REMOVE LIKE

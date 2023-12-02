@@ -74,6 +74,8 @@ class User(db.Model, UserMixin):
 
             "albums":[album.to_dict() for album in self.albums],
             "posts": [post.to_dict() for post in self.posts],
-            "comments": [comment.to_dict() for comment in self.comments]
+            "comments": [comment.to_dict() for comment in self.comments],
+            # "followers": ,
+            # "following": ,
 
         }

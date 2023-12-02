@@ -1,10 +1,10 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .likes import seed_likes, undo_likes
-from .comments import seed_comments, undo_comments
-from .follows import seed_follows, undo_follows
 from .albums import seed_albums, undo_albums
 from .posts import seed_posts, undo_posts
+from .comments import seed_comments, undo_comments
+# from .likes import seed_likes, undo_likes
+# from .follows import seed_follows, undo_follows
 
 from app.models.db import db, environment, SCHEMA
 

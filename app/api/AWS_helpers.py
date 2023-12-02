@@ -22,6 +22,10 @@ def get_unique_filename(filename):
 
 
 def upload_file_to_s3(file, acl="public-read"):
+
+    print("BUCKET NAME", BUCKET_NAME)
+    print("S3 KEY", os.environ.get("S3_KEY"))
+    print("S3 SECRET", os.environ.get("S3_SECRET"))
     try:
         s3.upload_fileobj(
             file,
