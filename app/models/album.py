@@ -29,19 +29,19 @@ class Album(db.Model):
             "category": self.category,
             "title": self.title,
             "description": self.description,
-            "cover_image": self.cover_image,
+            "cover": self.cover,
             "date": self.date,
             "user_id": self.user_id
         }
     
 
-    def to_dict(self):
+    def to_dict_descriptive(self):
         return {
             "id": self.id,
             "category": self.category,
             "title": self.title,
             "description": self.description,
-            "cover_image": self.cover_image,
+            "cover": self.cover,
             "date": self.date,
             "user_id": self.user_id,
             "posts": [post.to_dict() for post in self.posts]

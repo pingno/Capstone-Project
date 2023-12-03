@@ -16,10 +16,10 @@ def get_all_pcomment():
     """
 
     comments = Comment.query.all()
-    return {"posts": [comment.to_dict_descriptive() for comment in comments]}
+    return [comment.to_dict_descriptive() for comment in comments]
 
 
-# GET POST BY ID
+# GET COMMENT BY ID
 @comment_routes.route('/<int:id>')
 def get_comment(id):
     """
@@ -30,8 +30,18 @@ def get_comment(id):
 
 
 
-# UPDATE A POST BY ID
-@comment_routes.route('/<int:id>', methods=["PATCH"])
+# GET ALL USERS COMMENTS
+@comment_routes.route('/current')
+@login_required
+def get_user_comments():
+    
+    return [comment.to_dict_descriptive() for comment in current_user.comments]
+
+
+
+
+# UPDATE A COMMENT BY ID
+@comment_routes.route('/<int:id>/edit', methods=["PUT"])
 @login_required
 def edit_comment(id):
     """
@@ -56,7 +66,7 @@ def edit_comment(id):
 
 
 
-# DELETE POST BY ID
+# DELETE COMMENT BY ID
 @comment_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_comment(id):

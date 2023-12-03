@@ -41,6 +41,7 @@ def create_album():
         new_album = {
             "user_id": current_user.id,
             "category": form.category.data,
+            "title": form.title.data,
             "description": form.description.data,
             "date": datetime.now()
         }
@@ -68,7 +69,7 @@ def create_album():
 
 
 # UPDATE ALBUM
-@album_routes.route("/<int:id>", methods=["PUT", "PATCH"])
+@album_routes.route("/<int:id>", methods=["PUT"])
 @login_required
 def update_album(id):
 
@@ -81,58 +82,74 @@ def update_album(id):
     
     form = AlbumForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        data = form.data
 
-        album.user_id = current_user.__iadd__
-        album.name = data["name"]
-        album.description = data["description"]
-        album.date = album.date #? can i get the date from previous
+    if form.validate_on_submit():
+
+        # if form.category.data:
+        album.category = form.category.data
+        # if form.title.data:
+        album.title = form.title.data
+        # if form.description.data:
+        album.description = form.description.data
+
+        if form.cover.data:
+            cover = form.cover.data
+            if cover:
+                cover.filename = get_unique_filename(cover.filename)
+                if album.cover:
+                    remove_file_from_s3(album.cover)
+                    uploadCover = upload_file_to_s3(cover)
+
+                if "url" not in uploadCover:
+                    print(uploadCover)
+                    return uploadCover
+                else:
+                    album.cover = uploadCover["url"]
 
         db.session.commit()
 
-        return {"album": album.to_dict_descriptive()}
+        return album.to_dict_descriptive(), 201
     else:
         return {"errors": form.errors}, 400
     
 
-# UPDATE ALBUM IMAGE
-@album_routes.route("/<int:id>", methods=["PUT", "PATCH"])
-@login_required
-def update_album_image(id):
+# # UPDATE ALBUM IMAGE
+# @album_routes.route("/<int:id>", methods=["PUT", "PATCH"])
+# @login_required
+# def update_album_image(id):
 
-    album = Album.query.get(id)
+#     album = Album.query.get(id)
 
-    if album.user_id != current_user.id:
-        return {"message": "Forbidden"}, 403
+#     if album.user_id != current_user.id:
+#         return {"message": "Forbidden"}, 403
     
-    form = AlbumForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+#     form = AlbumForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if form.validate_on_submit():
-        cover = form.data["cover"]
-        if cover:
-            cover.filename = get_unique_filename(cover.filename)
-            if album.cover:
-                remove_file_from_s3(album.cover)
-            uploadCover = upload_file_to_s3(cover)
+#     if form.validate_on_submit():
+#         cover = form.data["cover"]
+#         if cover:
+#             cover.filename = get_unique_filename(cover.filename)
+#             if album.cover:
+#                 remove_file_from_s3(album.cover)
+#             uploadCover = upload_file_to_s3(cover)
 
-            if "url" not in uploadCover:
-                print(uploadCover)
-                return uploadCover
-            else:
-                album.cover = uploadCover["url"]
+#             if "url" not in uploadCover:
+#                 print(uploadCover)
+#                 return uploadCover
+#             else:
+#                 album.cover = uploadCover["url"]
 
-        db.session.commit()
+#         db.session.commit()
 
-        return {"album": album.to_dict_descriptive()}
-    else:
-        return {"errors", form.errors}, 400
+#         return {"album": album.to_dict_descriptive()}
+#     else:
+#         return {"errors", form.errors}, 400
 
 
 
 # DELETE ALBUM
-@album_routes.route('/<int:id>', methods=["DELETE"])
+@album_routes.route('/<int:id>/delete', methods=["DELETE"])
 @login_required
 def delete_album(id):
     """
@@ -142,7 +159,7 @@ def delete_album(id):
     album = Album.query.get(id)
 
     if album.user_id != current_user.id:
-        return error_message("user", "Authorization Error"), 403
+        return {"errors", "Authorization Error"}, 403
     
     if album.cover is not None:
         file_to_delete = remove_file_from_s3(album.cover)
@@ -152,7 +169,7 @@ def delete_album(id):
             db.session.commit()
             return {"message": "Album successfully deleted"}
         else:
-            return error_message("file", "File deletion error"), 401
+            return {"errors", "File deletion error"}, 401
         
     else:
         db.sesssion.delete(album)
@@ -199,7 +216,7 @@ def add_album_post(id):
 
         db.session.add(newPost)
         db.session.commit()
-        return {"post": newPost.to_dict_descriptive()}
+        return newPost.to_dict(), 201
     return {"errors": form.errors}, 400
 
 

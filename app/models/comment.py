@@ -37,5 +37,5 @@ class Comment(db.Model):
             "post_id": self.post_id,
             "user_id": self.user_id,
             # "likes": [like.to_dict() for like in self.likes],
-            "likes": len(self.userLikes)
+            # "likes": len(self.userLikes)
         }

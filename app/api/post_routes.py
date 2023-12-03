@@ -25,12 +25,12 @@ def get_post(id):
     Query for a post by id and returns that post in a dictionary
     """
     post = Post.query.get(id)
-    return post.to_dict_descriptive()
+    return post.to_dict()
 
 
 
 # UPDATE A POST BY ID
-@post_routes.route('/<int:id>/edit', methods=["PATCH"])
+@post_routes.route('/<int:id>/edit', methods=["PUT"])
 @login_required
 def edit_post(id):
     """
@@ -48,8 +48,8 @@ def edit_post(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
 
-            post.headline=form.data["headline"]
-            post.content=form.data["content"]
+            post.headline=form.headline.data
+            post.content=form.content.data
 
             if form.image.data:
                 image = form.image.data
@@ -63,7 +63,7 @@ def edit_post(id):
                 post.image = upload["url"]
         
         db.session.commit()
-        return post.to_dict_descriptive(), 201
+        return post.to_dict(), 201
 
 
 
@@ -89,7 +89,7 @@ def delete_post(id):
 def create_comment(id):
     post = Post.query.get(id)
 
-    if post.user_id != current_user.id:
+    if post.user_id == current_user.id:
         return {"message": "Forbidden"}, 403
     
     form = CommentForm()
@@ -132,7 +132,8 @@ def add_like(id):
     else:
         post.userLikes.append(user)
         db.session.commit()
-        return post.to_dict_descriptive(),201
+        # return [like for like in post.userLikes]
+        return post.to_dict(),201
 
 
 # UNLIKE
@@ -147,4 +148,4 @@ def remove_like(id):
     else:
         post.userLikes.remove(user)
         db.session.commit()
-        return post.to_dict_descriptive(),201
+        return post.to_dict(),201

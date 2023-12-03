@@ -38,6 +38,7 @@ class User(db.Model, UserMixin):
         lazy="dynamic"
     )
 
+
  
 
     @property
@@ -75,7 +76,13 @@ class User(db.Model, UserMixin):
             "albums":[album.to_dict() for album in self.albums],
             "posts": [post.to_dict() for post in self.posts],
             "comments": [comment.to_dict() for comment in self.comments],
-            # "followers": ,
-            # "following": ,
+            "followers": [user.just_followers() for user in self.followers]
 
+        }
+
+
+    def just_followers(self):
+        return {
+            "id": self.id,
+            "username": self.username
         }
