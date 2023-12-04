@@ -84,6 +84,7 @@ def sign_up():
             upload = upload_file_to_s3(image)
 
             if "url" not in upload:
+                print("RIGHT HERE")
                 return upload, 401
             else:
                 new_user["profile_image"] = upload["url"]
@@ -95,6 +96,7 @@ def sign_up():
         db.session.commit()
         login_user(user)
         return user.to_dict()
+    print("RIGHT OVER EHRE")
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

@@ -13,6 +13,12 @@ function SignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+
+  const [profile_image, setProfile_Image] = useState(null)
+  const [bio, setBio] = useState("")
+
+
+
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = async (e) => {
@@ -34,15 +40,7 @@ function SignupFormPage() {
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
+
         <label>
           Username
           <input
@@ -52,6 +50,17 @@ function SignupFormPage() {
             required
           />
         </label>
+
+        <label>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+
         <label>
           Password
           <input

@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import { authenticate } from "./store/session";
+
+import Navigation from "./components/Navigation";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
-import { authenticate } from "./store/session";
-import Navigation from "./components/Navigation";
+import AlbumsList from "./components/AlbumsList";
+import AlbumPage from "./components/AlbumPage"
+import UserPage from "./components/UserPage"
+
 
 function App() {
   const dispatch = useDispatch();
@@ -13,17 +18,34 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+
   return (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/login" >
+          
+          <Route exact path="/">
+            <AlbumsList />
+          </Route>
+
+          <Route exact path="/login" >
             <LoginFormPage />
           </Route>
-          <Route path="/signup">
+          
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
+
+          <Route exact path="/albums/:albumId">
+            <AlbumPage />
+          </Route>
+
+          <Route exact path="/users/:userId">
+            <UserPage />
+          </Route>
+
+
         </Switch>
       )}
     </>
