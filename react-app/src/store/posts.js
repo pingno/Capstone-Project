@@ -76,7 +76,7 @@ export const fetchEditPost = (formData, postId) => async (dispatch) => {
     if (res.ok) {
         const post = await res.json();
         await dispatch(editPost(post))
-        await dispatch(fetchAllPosts())
+        await dispatch(fetchAllAlbums())
         return post
     } else {
         const data = await res.json();
@@ -94,7 +94,7 @@ export const fetchDeletePost = (postId) => async (dispatch) => {
     const data = await res.json()
     if (res.ok){
         await dispatch(removePost(postId))
-        await dispatch(fetchAllPosts())
+        await dispatch(fetchAllAlbums())
         return data
     } else {
         return data

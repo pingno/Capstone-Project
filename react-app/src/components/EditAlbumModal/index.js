@@ -37,7 +37,7 @@ function EditAlbumModal( {albumId} ) {
         if(!category) errorList.category = "Category is required"
         if(!title) errorList.title = "Title is required"
         if(!description) errorList.description = "Description is required"
-        if(!cover) errorList.cover = "Please add a cover image (.jpg, .jpeg, .png, .gif, .pdf)"
+        // if(!cover) errorList.cover = "Please add a cover image (.jpg, .jpeg, .png, .gif, .pdf)"
 
         if(Object.values(errorList).length > 0) {
             setErrors(errorList);

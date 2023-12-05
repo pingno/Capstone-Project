@@ -6,6 +6,8 @@ import './AlbumPage.css'
 
 import { fetchAllAlbums } from "../../store/albums";
 import { fetchAllPosts } from "../../store/posts";
+import EditPostModal from "../EditPostModal";
+import DeletePostModal from "../DeletePostModal";
 import OpenModalButton from "../OpenModalButton";
 import AddPostModal from "../AddPostModal";
 
@@ -62,15 +64,15 @@ export default function AlbumPage() {
                         <div>Add Like</div>
                         <div>Remove Like</div>
 
-                        {/* {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
+                        {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
                          buttonText="Edit Post"
-                        modalComponent={<EditPostModal  />}
-                         /> : <div></div>} */}
+                        modalComponent={<EditPostModal  postId={post.id}/>}
+                         /> : <div></div>}
 
-                        {/* {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
+                        {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
                          buttonText="Delete Post"
-                        modalComponent={<DeletePostModal  />}
-                         /> : <div></div>} */}
+                        modalComponent={<DeletePostModal postId={post.id} />}
+                         /> : <div></div>}
 
 
                         </div>
