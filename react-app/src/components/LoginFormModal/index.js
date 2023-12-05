@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
 
+import * as sessionActions from "../../store/session";
+
 function LoginFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -13,13 +15,26 @@ function LoginFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login({email, password}));
     if (data) {
       setErrors(data);
     } else {
         closeModal()
     }
   };
+
+
+  const handleDemoUser = (e) => {
+    e.preventDefault()
+    setEmail("matt@aa.io")
+    setPassword("password")
+    return dispatch(sessionActions.login({
+      email: "matt@aa.io",
+      password: "password"
+    })).then(closeModal)
+}
+
+
 
   return (
     <>
@@ -49,6 +64,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button onClick={handleDemoUser}>Demo User</button>
       </form>
     </>
   );

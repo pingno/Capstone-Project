@@ -4,7 +4,9 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 import OpenModalButton from "../OpenModalButton"
-
+import AddAlbumModal from "../AddAlbumModal";
+import EditAlbumModal from "../EditAlbumModal";
+import DeleteAlbumModal from "../DeleteAlbumModal"
 
 import './UserPage.css'
 
@@ -16,9 +18,7 @@ export default function UserPage() {
     const dispatch = useDispatch()
     const { userId } = useParams()
 
-  
     const sessionUser = useSelector((state) => state.session.user)
-
     const users = useSelector((state) => state.users.users)
     const albumsArr = useSelector((state) => state.albums.albums)
 
@@ -28,12 +28,12 @@ export default function UserPage() {
         dispatch(fetchAllUsers())
     }, [dispatch])
 
+
     if(!users) return null
     if (!albumsArr) return null
 
 
     const user = users[userId]
-    console.log("USER AT ID", user)
 
     const albums = Object.values(albumsArr)
     const userAlbums = albums.filter((album) => album.user_id == userId)
@@ -50,18 +50,17 @@ export default function UserPage() {
 
             <div className="user-profile-container">
 
-                <img src={user.profile_image} />
+                <img src={user.profile_image} style={{width: "400px", height: "400px"}}/>
                 <div>{user.username}</div>
                 <div>{user.bio}</div>
 
             </div> 
 
-        {sessionUser && sessionUser.id == user.id ? <div>hello</div> : <div>bye</div>}
-           
-            {/* <OpenModalButton
+        {sessionUser && sessionUser.id == user.id ? <OpenModalButton
             buttonText="Add Album"
             modalComponent={<AddAlbumModal userId={user.id}  />}
-            /> */}
+            /> : <div></div>}
+           
 
 
             <div className="user-albums">
@@ -69,11 +68,29 @@ export default function UserPage() {
                     return <div key={album.id} className="each-album-tile">
                         
                         <div>{album.title}</div>
-                        <img src ={album.cover} />
+                        <Link to={`/albums/${album.id}`} >
+                        <img src ={album.cover} style={{width: "300px", height: "300px"}}/>
                         {/* <div>{album.description}</div> */}
+
+                        </Link>
+
+
+                        {sessionUser && sessionUser.id == user.id ? <OpenModalButton
+                    buttonText="Edit Album"
+                    modalComponent={<EditAlbumModal albumId={album.id}  />}
+                    /> : <div></div>}
+
+                        {sessionUser && sessionUser.id == user.id ? <OpenModalButton
+                    buttonText="Delete Album"
+                    modalComponent={<DeleteAlbumModal albumId={album.id}  />}
+                    /> : <div></div>}
 
                         </div>
                 })}
+
+
+
+
 
             </div>
 

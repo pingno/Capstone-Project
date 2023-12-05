@@ -5,35 +5,35 @@ import { Link } from "react-router-dom";
 import './AlbumPage.css'
 
 import { fetchAllAlbums } from "../../store/albums";
+import { fetchAllPosts } from "../../store/posts";
+import OpenModalButton from "../OpenModalButton";
+import AddPostModal from "../AddPostModal";
 
 
 export default function AlbumPage() {
     const dispatch = useDispatch()
     const { albumId } = useParams()
 
+
     const sessionUser = useSelector((state) => state.session.user)
+    const albumsObj = useSelector((state) => state.albums.albums) 
 
 
     useEffect(() => {
+        dispatch(fetchAllPosts())
         dispatch(fetchAllAlbums())
     }, [dispatch])
+    
 
 
-    const albumsArr = useSelector((state) => state.albums.albums)
-    // console.log("ALBUMS OBJ", albumsArr)
+    if (!albumsObj) return null
+    const album = albumsObj[albumId]
 
-    if (!albumsArr) return null
-
-    const albums = Object.values(albumsArr)
-    // console.log("ALBUMS", albums)
-
-    const album = albums[albumId]
-
-    const albumPosts = Object.values(albums[albumId].posts)
-    // console.log("ALBUM POSTS", albumPosts)
+    if(!album.posts) return null
+    const albumPosts = album.posts
 
 
-
+    
     return (
         <>
         
@@ -43,14 +43,17 @@ export default function AlbumPage() {
                     <div>{album.category}</div>
                     <div>{album.title}</div>
                     <div>{album.description}</div>
-                    <img src={album.cover} />
+                    <img src={album.cover} style={{height: "400px", width: "400px"}}/>
 
-
+            {sessionUser && sessionUser.id == album.user_id ? <OpenModalButton
+            buttonText="Add Post"
+            modalComponent={<AddPostModal albumId={albumId} />}
+            /> : <div></div>}
 
             <div className="album-posts-container">
                 {albumPosts.map((post) => {
                     return <div key={post.id} className="each-post-tile">
-                        <img src={post.image} />
+                        <img src={post.image} style={{height: "400px", width: "400px"}}/>
                         <div>{post.headline}</div>
                         <div>{post.content}</div>
                         <div>{post.date}</div>
@@ -58,6 +61,17 @@ export default function AlbumPage() {
 
                         <div>Add Like</div>
                         <div>Remove Like</div>
+
+                        {/* {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
+                         buttonText="Edit Post"
+                        modalComponent={<EditPostModal  />}
+                         /> : <div></div>} */}
+
+                        {/* {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
+                         buttonText="Delete Post"
+                        modalComponent={<DeletePostModal  />}
+                         /> : <div></div>} */}
+
 
                         </div>
                 })}

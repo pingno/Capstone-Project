@@ -16,7 +16,7 @@ def get_all_pcomment():
     """
 
     comments = Comment.query.all()
-    return [comment.to_dict_descriptive() for comment in comments]
+    return {"comments": [comment.to_dict_descriptive() for comment in comments]}
 
 
 # GET COMMENT BY ID

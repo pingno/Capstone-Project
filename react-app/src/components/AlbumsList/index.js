@@ -33,7 +33,9 @@ export default function AlbumsList() {
                     <div>{album.category}</div>
                     <div>{album.title}</div>
                     <div>{album.description}</div>
+                    <Link to={`/albums/${album.id}`}>
                     <img src={album.cover} />
+                    </Link>
                     
                     </div>
             })}

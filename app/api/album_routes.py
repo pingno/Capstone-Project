@@ -69,7 +69,7 @@ def create_album():
 
 
 # UPDATE ALBUM
-@album_routes.route("/<int:id>", methods=["PUT"])
+@album_routes.route("/<int:id>/edit", methods=["PUT"])
 @login_required
 def update_album(id):
 
@@ -180,6 +180,7 @@ def delete_album(id):
 
 
 # CREATE POST FOR ALBUM
+# goes to album
 @album_routes.route('/<int:id>/posts/create', methods=['POST'])
 @login_required
 def add_album_post(id):
