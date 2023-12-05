@@ -30,12 +30,12 @@ export default function AlbumsList() {
             {albums.map((album) => {
                 return <div key={album.id} className="album-tile">
 
-                    <div>{album.category}</div>
+                    {/* <div>{album.category}</div> */}
                     <div>{album.title}</div>
-                    <div>{album.description}</div>
                     <Link to={`/albums/${album.id}`}>
-                    <img src={album.cover} />
+                    <img src={album.cover} style={{width: "400px", height: "300px"}} />
                     </Link>
+                    <div>{album.description}</div>
                     
                     </div>
             })}

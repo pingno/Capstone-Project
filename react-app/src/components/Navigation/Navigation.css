@@ -1,7 +1,43 @@
-.profile-dropdown {
-  position: absolute;
-}
 
 .hidden {
   display: none;
+}
+
+
+.nav-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  
+  /* cursor: pointer; */
+  list-style: none;
+  text-align: left;
+
+  position: absolute;
+  right: 30px;
+  
+  padding: 10px;
+  background-color: white;
+  border: 1px solid black;
+
+  /* font-weight: bold; */
+
+  margin-top: 5px;
+  border-radius: 8px;
+
+}
+
+#top-left{
+  cursor: pointer;
+}
+
+#middle-link{
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }

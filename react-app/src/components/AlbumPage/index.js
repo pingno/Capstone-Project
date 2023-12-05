@@ -11,6 +11,10 @@ import DeletePostModal from "../DeletePostModal";
 import OpenModalButton from "../OpenModalButton";
 import AddPostModal from "../AddPostModal";
 
+import ShowPostModal from "../ShowPostModal";
+
+
+
 
 export default function AlbumPage() {
     const dispatch = useDispatch()
@@ -19,6 +23,13 @@ export default function AlbumPage() {
 
     const sessionUser = useSelector((state) => state.session.user)
     const albumsObj = useSelector((state) => state.albums.albums) 
+
+    const [selectedPost, setSelectedPost] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
+
+
+
+
 
 
     useEffect(() => {
@@ -35,34 +46,63 @@ export default function AlbumPage() {
     const albumPosts = album.posts
 
 
+
     
     return (
         <>
         
+        <div></div>
+
         <div className="album-container">
 
-   
+                <div className="album-1">
+
+                    <img src={album.cover} style={{height: "400px", width: "400px"}}/>
+
+                </div>
+
+
+                <div className="album-2">
+                <Link to={`/users/${album.user_id}`}>View Creator</Link>
+
+
                     <div>{album.category}</div>
                     <div>{album.title}</div>
                     <div>{album.description}</div>
-                    <img src={album.cover} style={{height: "400px", width: "400px"}}/>
+                </div>
+
+                </div>
 
             {sessionUser && sessionUser.id == album.user_id ? <OpenModalButton
             buttonText="Add Post"
             modalComponent={<AddPostModal albumId={albumId} />}
             /> : <div></div>}
+            
+
+            {selectedPost && 
+                    <>
+                    <img src={selectedPost.image} style={{height: "400px", width: "400px"}}/>
+                    <div>{selectedPost.headline}</div>
+                    <div>{selectedPost.content}</div>
+                    <div>{selectedPost.date}</div>
+                    <div>Likes {selectedPost.likes}</div>
+                    </>
+                }
 
             <div className="album-posts-container">
                 {albumPosts.map((post) => {
                     return <div key={post.id} className="each-post-tile">
-                        <img src={post.image} style={{height: "400px", width: "400px"}}/>
-                        <div>{post.headline}</div>
-                        <div>{post.content}</div>
-                        <div>{post.date}</div>
-                        <div>Likes {post.likes}</div>
 
-                        <div>Add Like</div>
-                        <div>Remove Like</div>
+                    
+
+                        {/* <Link to={`/posts/${post.id}`}> */}
+                        <img src={post.image} style={{height: "400px", width: "400px"}} onClick={() => {
+                            setSelectedPost(post)
+                          
+                        }}/>
+                        {/* </Link> */}
+
+
 
                         {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
                          buttonText="Edit Post"
@@ -74,12 +114,12 @@ export default function AlbumPage() {
                         modalComponent={<DeletePostModal postId={post.id} />}
                          /> : <div></div>}
 
-
                         </div>
                 })}
             </div>
 
-        </div>
+
+
 
         </>
     )

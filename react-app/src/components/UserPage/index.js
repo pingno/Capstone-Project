@@ -54,12 +54,19 @@ export default function UserPage() {
                 <div>{user.username}</div>
                 <div>{user.bio}</div>
 
-            </div> 
 
-        {sessionUser && sessionUser.id == user.id ? <OpenModalButton
+                {sessionUser && sessionUser.id == user.id ? <OpenModalButton
             buttonText="Add Album"
             modalComponent={<AddAlbumModal userId={user.id}  />}
             /> : <div></div>}
+
+
+            
+
+
+            </div> 
+
+
            
 
 

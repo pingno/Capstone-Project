@@ -1,0 +1,23 @@
+.album-container{
+    display: flex;
+
+    margin: 100px;
+}
+
+.album-2{
+    margin: 100px;
+}
+
+.album-2 div{
+    padding: 5px;
+}
+
+
+.album-posts-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    margin: 15px;
+
+    width: 100%;
+}

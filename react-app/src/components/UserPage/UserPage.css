@@ -1,0 +1,15 @@
+.user-profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0px 500px;
+    margin-bottom: 50px;
+}
+
+
+.user-albums{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

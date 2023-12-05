@@ -38,7 +38,6 @@ class User(db.Model, UserMixin):
         lazy="dynamic"
     )
 
-
  
 
     @property

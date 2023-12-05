@@ -1,8 +1,11 @@
 import { normalizeObj } from "./normalize"
+import { fetchAllAlbums } from "./albums"
+
 const GET_ALL_COMMENTS = "comments/GET_ALL_COMMENTS"
 const ADD_COMMENT = "comments/CREATE_COMMENT"
 const UPDATE_COMMENT = "comments/UPDATE_COMMENT"
 const REMOVE_COMMENT = "comments/REMOVE_COMMENT"
+
 
 //COMMENTS
 
@@ -53,6 +56,8 @@ export const fetchCreateComment = (comment, postId) => async (dispatch) => {
     if (res.ok) {
         const comment = await res.json()
         await dispatch(addComment(comment))
+        // await dispatch(fetchAllAlbums())
+        await dispatch(fetchAllComments())
         return comment
     } else {
         const data = await res.json()
@@ -71,6 +76,8 @@ export const fetchEditComment = (comment, commentId) => async (dispatch) => {
     if (res.ok) {
         const comment = await res.json()
         await dispatch(editComment(comment))
+        // await dispatch(fetchAllAlbums())
+        await dispatch(fetchAllComments())
         return comment
     } else {
         const data = await res.json()
@@ -87,6 +94,7 @@ export const fetchDeleteComment = (commentId) => async (dispatch) => {
     if(res.ok) {
         const comment = await res.json()
         await dispatch(removeComment(comment))
+        // await dispatch(fetchAllAlbums())
         await dispatch(fetchAllComments())
         return comment
     } else {

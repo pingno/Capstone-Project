@@ -8,6 +8,8 @@ import AlbumsList from "./components/AlbumsList";
 import AlbumPage from "./components/AlbumPage"
 import UserPage from "./components/UserPage"
 
+import ShowPostModal from "./components/ShowPostModal";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +35,10 @@ function App() {
 
           <Route exact path="/users/:userId">
             <UserPage />
+          </Route>
+
+          <Route exact path="/posts/:postId">
+            <ShowPostModal />
           </Route>
 
 
