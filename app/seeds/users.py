@@ -22,7 +22,7 @@ def seed_users():
         username='sophyanggang', 
         email='siphie@aa.io', 
         password='password', 
-        profile_image="https://us.123rf.com/450wm/kyyybic/kyyybic2205/kyyybic220500011/185424748-an-urban-guy-isolated-vector-illustration-calm-anthropomorphic-frog-wearing-a-street-style-outfit.jpg",
+        profile_image="https://www.mensjournal.com/.image/t_share/MTk2MTM2MjM4NjUyMjY5NzEz/surfing-main.jpg",
         bio="Hi! My page is about encouraging others to try new things and sharing my experiences with the world so that I could help others through the process.  I hope you enjoy my feed :)")
     user4 = User(
         username='meterpeter', 
