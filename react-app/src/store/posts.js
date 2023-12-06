@@ -56,7 +56,6 @@ export const fetchCreatePost = (post, albumId) => async (dispatch) => {
 
     if (res.ok) {
         const post = await res.json();
-        console.log("THUNK POST", post)
         await dispatch(addPost(post))
         await dispatch(fetchAllAlbums())
         return post

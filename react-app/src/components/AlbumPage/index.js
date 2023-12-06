@@ -93,16 +93,19 @@ export default function AlbumPage() {
                 {albumPosts.map((post) => {
                     return <div key={post.id} className="each-post-tile">
 
-                    
+                        <Link to={`/posts/${post.id}`}>
+                        <img src={post.image} style={{height: "400px", width: "400px"}} 
+                        
+                        // onClick={() => {
+                        //     setSelectedPost(post)
+                        // }}/>
 
-                        {/* <Link to={`/posts/${post.id}`}> */}
-                        <img src={post.image} style={{height: "400px", width: "400px"}} onClick={() => {
-                            setSelectedPost(post)
-                          
-                        }}/>
-                        {/* </Link> */}
+                        />
+
+                        </Link>
 
 
+                        <div>{post.headline}</div>
 
                         {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
                          buttonText="Edit Post"

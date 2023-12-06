@@ -61,13 +61,9 @@ export default function UserPage() {
             /> : <div></div>}
 
 
-            
-
 
             </div> 
 
-
-           
 
 
             <div className="user-albums">
@@ -76,7 +72,7 @@ export default function UserPage() {
                         
                         <div>{album.title}</div>
                         <Link to={`/albums/${album.id}`} >
-                        <img src ={album.cover} style={{width: "300px", height: "300px"}}/>
+                        <img src ={album.cover} style={{width: "400px", height: "400px"}}/>
                         {/* <div>{album.description}</div> */}
 
                         </Link>

@@ -1,5 +1,6 @@
 import { normalizeObj } from "./normalize"
 import { fetchAllAlbums } from "./albums"
+import { fetchAllPosts } from "./posts"
 
 const GET_ALL_COMMENTS = "comments/GET_ALL_COMMENTS"
 const ADD_COMMENT = "comments/CREATE_COMMENT"
@@ -48,7 +49,7 @@ export const fetchAllComments = () => async (dispatch) => {
 
 // CREATE COMMENT
 export const fetchCreateComment = (comment, postId) => async (dispatch) => {
-    const res = await fetch(`/posts/${postId}/comments/create`, {
+    const res = await fetch(`/api/posts/${postId}/comments/create`, {
         method: "POST",
         body: comment
     })
@@ -56,8 +57,8 @@ export const fetchCreateComment = (comment, postId) => async (dispatch) => {
     if (res.ok) {
         const comment = await res.json()
         await dispatch(addComment(comment))
-        // await dispatch(fetchAllAlbums())
-        await dispatch(fetchAllComments())
+        await dispatch(fetchAllPosts())
+
         return comment
     } else {
         const data = await res.json()
@@ -68,7 +69,7 @@ export const fetchCreateComment = (comment, postId) => async (dispatch) => {
 //EDIT COMMENT
 //Double check
 export const fetchEditComment = (comment, commentId) => async (dispatch) => {
-    const res = await fetch (`/comments/${commentId}/edit`, {
+    const res = await fetch (`/api/comments/${commentId}/edit`, {
         method: "PUT",
         body: comment
     })
@@ -76,8 +77,7 @@ export const fetchEditComment = (comment, commentId) => async (dispatch) => {
     if (res.ok) {
         const comment = await res.json()
         await dispatch(editComment(comment))
-        // await dispatch(fetchAllAlbums())
-        await dispatch(fetchAllComments())
+        await dispatch(fetchAllPosts())
         return comment
     } else {
         const data = await res.json()
@@ -87,15 +87,14 @@ export const fetchEditComment = (comment, commentId) => async (dispatch) => {
 
 //DELETE COMMENT
 export const fetchDeleteComment = (commentId) => async (dispatch) => {
-    const res = await fetch (`/comments/${commentId}/delete`, {
+    const res = await fetch (`/api/comments/${commentId}/delete`, {
         method: "DELETE"
     })
 
     if(res.ok) {
         const comment = await res.json()
         await dispatch(removeComment(comment))
-        // await dispatch(fetchAllAlbums())
-        await dispatch(fetchAllComments())
+        await dispatch(fetchAllPosts())
         return comment
     } else {
         const data = await res.json()

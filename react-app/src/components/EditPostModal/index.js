@@ -18,7 +18,7 @@ function EditPostModal( {postId} ) {
 
     const user = useSelector((state) => state.session.user)
     const post = useSelector((state) => state.posts.posts[postId])
-    console.log("EDIT POST", post)
+
 
     const [headline, setHeadline] = useState(post ? post.headline : "")
     const [content, setContent] = useState(post ? post.content : "")
