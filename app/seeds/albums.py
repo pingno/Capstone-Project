@@ -111,7 +111,7 @@ def seed_albums():
 
 
     album13 = Album(
-        user_id = 3,
+        user_id = 4,
         category = "Baking",
         title = "I love desserts",
         cover = "https://www.eatthis.com/wp-content/uploads/sites/4/2022/08/baking-ingredients.jpg?quality=82&strip=all&w=640",
@@ -119,7 +119,7 @@ def seed_albums():
         date = fake.date_between(start_date='-1y', end_date="today")
     )
     album14 = Album(
-        user_id = 3,
+        user_id = 4,
         category = "Parkour",
         title = "Let's be ninjas",
         cover = "https://www.fotolog.com/wp-content/uploads/2020/11/parkours.jpg",
@@ -127,7 +127,7 @@ def seed_albums():
         date = fake.date_between(start_date='-1y', end_date="today")
     )
     album15 = Album(
-        user_id = 3,
+        user_id = 4,
         category = "Painting",
         title = "Picking up brushes",
         cover = "https://studio.pinotspalette.com/briercreek/images/bc-allaboutpaint.jpg",
@@ -135,7 +135,7 @@ def seed_albums():
         date = fake.date_between(start_date='-1y', end_date="today")
     )
     album16 = Album(
-        user_id = 3,
+        user_id = 4,
         category = "Woodwork",
         title = "Carving the earth",
         cover = "https://grainger-prod.adobecqms.net/content/dam/grainger/gus/en/public/digital-tactics/know-how/hero/SS-KH_24MustHaveWoodworkingToolsForYourWorkshop_KH-HRO.jpg",

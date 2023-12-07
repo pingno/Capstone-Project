@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams,} from "react-router-dom/cjs/react-router-dom.min";
 
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 import { fetchAllAlbums } from "../../store/albums";
 import { fetchAllPosts } from "../../store/posts";
 import { fetchAllComments} from '../../store/comments'
+
+import { fetchAddLike } from "../../store/posts";
 
 import AddComment from "../AddComment";
 import OpenModalButton from "../OpenModalButton";
@@ -12,9 +16,11 @@ import EditComment from '../EditComment';
 import DeleteComment from '../DeleteComment'
 
 function ShowPostModal() {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const { postId } = useParams();
+
+  const history = useHistory()
 
   const user = useSelector((state) => state.session.user);
   const posts = useSelector((state) => state.posts?.posts);
@@ -28,10 +34,21 @@ function ShowPostModal() {
   if (!posts) return null;
 
   const post = posts[postId];
-  const postComments = post.comments;
+
+
+   const addLike = (e) => {
+     dispatch(fetchAddLike(post))
+   }   
+
 
   return (
     <>
+
+    <Link to={`/albums/${post.album_id}`}>
+      <i className="fa-solid fa-arrow-left"></i>
+    </Link>
+
+
       <div className="post-left">
         <img src={post.image} style={{ height: "400px", width: "400px" }} />
       </div>
@@ -40,8 +57,16 @@ function ShowPostModal() {
         <div>{post.headline}</div>
         <div>{post.content}</div>
         <div>{post.date}</div>
-        <div>Likes {post.likes}</div>
+        <div>{post.likes} Likes </div>
       </div>
+
+
+      <i className="fa-solid fa-thumbs-up" onClick={(e) => addLike()}></i>
+      <i className="fa-solid fa-thumbs-down"></i>
+
+
+      <div>{post.num_comments} Comments </div>
+  
 
       <div className="comment-container">
         {post.comments.map((comment) => {
@@ -60,18 +85,13 @@ function ShowPostModal() {
                     modalComponent={<DeleteComment commentId={comment.id}  />}
                     /> : <div></div>}
 
-
-              <div>Add Like</div>
-              <div>Remove Like</div>
             </div>
           );
         })}
 
-        {user && user.id != post.user_id ? (
+
           <AddComment postId={postId} />
-        ) : (
-          <div></div>
-        )}
+
       </div>
     </>
   );

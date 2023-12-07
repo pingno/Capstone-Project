@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import './AlbumPage.css'
 
@@ -11,33 +11,22 @@ import DeletePostModal from "../DeletePostModal";
 import OpenModalButton from "../OpenModalButton";
 import AddPostModal from "../AddPostModal";
 
-import ShowPostModal from "../ShowPostModal";
-
-
-
 
 export default function AlbumPage() {
     const dispatch = useDispatch()
     const { albumId } = useParams()
 
-
     const sessionUser = useSelector((state) => state.session.user)
     const albumsObj = useSelector((state) => state.albums.albums) 
 
     const [selectedPost, setSelectedPost] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
-
-
-
-
-
+ 
 
     useEffect(() => {
         dispatch(fetchAllPosts())
         dispatch(fetchAllAlbums())
     }, [dispatch])
     
-
 
     if (!albumsObj) return null
     const album = albumsObj[albumId]
@@ -46,18 +35,14 @@ export default function AlbumPage() {
     const albumPosts = album.posts
 
 
-
-    
     return (
         <>
         
-        <div></div>
-
         <div className="album-container">
 
                 <div className="album-1">
 
-                    <img src={album.cover} style={{height: "400px", width: "400px"}}/>
+                    <img src={album.cover} style={{height: "350px", width: "350px"}}/>
 
                 </div>
 

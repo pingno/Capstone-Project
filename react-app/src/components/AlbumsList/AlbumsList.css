@@ -2,10 +2,53 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    margin: 15px;
-
+    margin: 50px;
     width: 100%;
 
 
 
+}
+
+.albums-list{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.album-tile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.album-image{
+    height: 400px;
+    width: 400px;
+    border-radius: 25px;
+
+}
+
+
+.Link{
+    text-decoration: none;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+}
+
+.album-tile-title{
+    color: black;
+}
+
+.album-user-image{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
 }

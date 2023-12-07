@@ -26,7 +26,6 @@ class Post(db.Model):
         back_populates="postsLiked"
     )
 
-    
 
     def to_dict(self):
         return{
@@ -40,5 +39,6 @@ class Post(db.Model):
             "user_id": self.user_id,
 
             "comments": [comment.to_dict_descriptive() for comment in self.comments],
-            "likes": len(self.userLikes)
+            "likes": len(self.userLikes),
+            "num_comments": len(self.comments)
         }

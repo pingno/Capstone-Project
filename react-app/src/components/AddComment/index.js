@@ -8,13 +8,13 @@ import { fetchCreateComment } from "../../store/comments";
 
 function AddComment( {postId} ) {
     const dispatch = useDispatch()
-    const history = useHistory()
+
 
     const user = useSelector((state) => state.session.user)
     const [content, setContent] = useState("")
 
     const [errors, setErrors] = useState({})
-    const [imageLoading, setImageLoading] = useState(false)
+
     const [submitted, yesSubmitted] = useState(false)
 
  
@@ -41,7 +41,6 @@ function AddComment( {postId} ) {
         return await dispatch(fetchCreateComment(form, postId))
 
     }
-
 
     // useEffect(() => {
     //     yesSubmitted(false);

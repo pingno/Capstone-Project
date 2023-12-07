@@ -2,27 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-import { fetchAllAlbums } from "../../store/albums";
-import { fetchAllPosts } from "../../store/posts";
+// import { fetchAllAlbums } from "../../store/albums";
+// import { fetchAllPosts } from "../../store/posts";
 import { fetchAllComments } from "../../store/comments";
-
 import { fetchEditComment } from "../../store/comments";
 import { useModal } from "../../context/Modal";
 
 
 function EditComment( {commentId} ) {
+
     const dispatch = useDispatch()
-    const history = useHistory()
     const { closeModal } = useModal()
 
-
-    const user = useSelector((state) => state.session.user)
     const comment = useSelector((state) => state.comments.comments[commentId])
-    // console.log("COMMENT", comment)
-
  
     const [content, setContent] = useState(comment ? comment.content : "")
-
     const [errors, setErrors] = useState({})
     const [submitted, yesSubmitted] = useState(false)
 

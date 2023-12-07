@@ -6,6 +6,10 @@ const ADD_POST = "posts/CREATE_POST"
 const UPDATE_POST = "posts/UPDATE_POST"
 const REMOVE_POST = "posts/REMOVE_POST"
 
+const ADD_LIKE = "posts/ADD_LIKE"
+const REMOVE_LIKE = "posts/REMOVE_LIKE"
+
+
 //POSTS
 const getAllPosts = (posts) => ({
     type: GET_ALL_POSTS,
@@ -27,7 +31,44 @@ const removePost = (postId) => ({
     postId
 })
 
+const addLike = (post) => ({
+    type: ADD_LIKE,
+    post
+})
 
+const removeLike = (postId) => ({
+    type: REMOVE_LIKE,
+    postId
+})
+
+
+export const fetchAddLike = (post) => async (dispatch) => {
+    const res = await fetch (`/api/posts/${post.id}/likes/add`)
+
+    if(res.ok) {
+        const post = await res.json()
+        dispatch(addLike(post))
+        dispatch(fetchAllPosts())
+        return post
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
+
+export const fetchRemoveLike = (postId) => async (dispatch) => {
+    const res = await fetch (`/api/posts/${postId}/likes/remove`, {
+        method: "DELETE"
+    })
+    if(res.ok) {
+        const post = await res.json()
+        dispatch(fetchAllPosts())
+        return post
+    } else {
+        const data = await res.json()
+        return data
+    }
+}
 
 
 //GET ALL POSTS
@@ -126,6 +167,11 @@ const postsReducer = (state = initialState, action) => {
             newState = { ...state }
             delete newState.posts[action.postId]
             return newState
+
+        case ADD_LIKE:
+            newState = { ...state }
+            newState.posts[action.post.id] = action.post
+            return newState;
 
 
         default:

@@ -37,12 +37,12 @@ function LoginFormModal() {
 
 
   return (
-    <>
+    <div className="form-container">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <p key={idx} style={{ fontSize: "11px", color: "red", fontFamily: "arial" }}>{error}</p>
           ))}
         </ul>
         <label>
@@ -52,8 +52,8 @@ function LoginFormModal() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-        </label>
+            />
+            </label>
         <label>
           Password
           <input
@@ -63,10 +63,13 @@ function LoginFormModal() {
             required
           />
         </label>
+        <div className="login-buttons">
+
         <button type="submit">Log In</button>
         <button onClick={handleDemoUser}>Demo User</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

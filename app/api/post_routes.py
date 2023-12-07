@@ -84,7 +84,7 @@ def delete_post(id):
 
 
 # CREATE COMMENT FOR A POST
-@post_routes.route('/<int:id>/comments/create', methods=["POST"])
+@post_routes.route('/<int:id>/comments/create')
 @login_required
 def create_comment(id):
     post = Post.query.get(id)

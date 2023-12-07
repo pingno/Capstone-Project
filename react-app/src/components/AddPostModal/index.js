@@ -4,15 +4,13 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import { useModal } from "../../context/Modal";
 
 import { fetchAllAlbums } from "../../store/albums";
-
-import { fetchAllPosts } from "../../store/posts";
+// import { fetchAllPosts } from "../../store/posts";
 import { fetchCreatePost } from "../../store/posts";
 
 
 
 function AddPostModal( {albumId} ) {
     const dispatch = useDispatch()
-    const history = useHistory()
     const { closeModal } = useModal()
 
     const user = useSelector((state) => state.session.user)

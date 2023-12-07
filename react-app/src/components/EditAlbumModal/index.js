@@ -6,7 +6,6 @@ import { useModal } from "../../context/Modal";
 import { fetchAllAlbums } from "../../store/albums";
 import { fetchUpdateAlbum } from "../../store/albums";
 
-import * as sessionActions from "../../store/session";
 
 function EditAlbumModal( {albumId} ) {
     const dispatch = useDispatch()
@@ -44,13 +43,6 @@ function EditAlbumModal( {albumId} ) {
             return
         }
 
-
-        const newAlbum = {
-            category,
-            title,
-            description,
-            cover
-        }
 
         const form = new FormData()
         form.append("category", category)
