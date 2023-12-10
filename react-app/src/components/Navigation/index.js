@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import AddAlbumModal from "../AddAlbumModal";
 
 import logo from './logo.png'
 
@@ -25,12 +26,14 @@ function Navigation({ isLoaded }) {
 
       <div id="top-left">
 
-      <NavLink exact to="/" id="middle-link">
-
+      <NavLink exact to="/">
         <img src={logo} alt="logo" style={{height: "50px", width: "50px"}}/>
-
-        </NavLink>
+      </NavLink>
       
+      <Link to={``} style={{textDecoration: "none", color: "black"}}>
+            About Us
+        </Link>
+
       
       </div>
 
@@ -40,13 +43,30 @@ function Navigation({ isLoaded }) {
         </NavLink>
       </div>
 
-      <div id="top-right">
+      <div>
 
         {sessionUser ?         
-        <div>
+        <div id="top-right"> 
+
+
+          
+      <div className="login-buttons">
+
+          <OpenModalButton
+            buttonText="Add Album"
+            modalComponent={<AddAlbumModal userId={sessionUser.id} />}
+            />
+            </div>
+
+          <div id="loggedas">
+            <div>Logged in as </div>
+            <div>{sessionUser.username}</div>
+          </div>
+          
           <Link to={`/users/${sessionUser.id}`}>
           <img src={sessionUser.profile_image} style={{border: "2px solid black", borderRadius: "50%", height: "40px", width: "40px", objectFit: "cover"}}/>
           </Link>
+
              {isLoaded && <ProfileButton user={sessionUser} />}
         </div> 
 
@@ -56,15 +76,20 @@ function Navigation({ isLoaded }) {
         {/* <ProfileButton user={sessionUser} /> */}
 
         <>
+        <div className="login-buttons">
+
             <OpenModalButton
               buttonText="Log In"
               modalComponent={<LoginFormModal />}
-            />
+              />
 
             <OpenModalButton
               buttonText="Sign Up"
               modalComponent={<SignupFormModal />}
-            />
+              />
+
+            </div>
+
           </>
 
         </>
