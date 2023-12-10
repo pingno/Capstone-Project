@@ -7,6 +7,7 @@ import OpenModalButton from "../OpenModalButton";
 import AddAlbumModal from "../AddAlbumModal";
 import EditAlbumModal from "../EditAlbumModal";
 import DeleteAlbumModal from "../DeleteAlbumModal";
+import EDAlbumButton from "../EDAlbum";
 
 import "./UserPage.css";
 
@@ -18,7 +19,7 @@ export default function UserPage() {
   const { userId } = useParams();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const users = useSelector((state) => state.users.users);
+  const users = useSelector((state) => state.users?.users);
   const albumsArr = useSelector((state) => state.albums.albums);
 
   useEffect(() => {
@@ -30,15 +31,11 @@ export default function UserPage() {
   if (!albumsArr) return null;
 
   const user = users[userId];
+  if(!user) return null
 
   const albums = Object.values(albumsArr);
   const userAlbums = albums.filter((album) => album.user_id == userId);
 
-  // console.log("ALBUMS", albums)
-  // console.log("USER ALBUMS", userAlbums)
-
-  // const userPosts = Object.values(userAlbums.posts)
-  // console.log("USER POSTS", userPosts)
 
   return (
     <>
@@ -48,13 +45,30 @@ export default function UserPage() {
         <img src={user.profile_image} className="user-profile-image" />
         <div className="user-page-username">{user.username}</div>
 
+      <div className="users-num">
+        <div>{user.albums.length} Albums</div>
+        <div>{user.posts.length} Posts</div>
+        <div>{user.followers.length} Followers</div>
+      </div>
+      
         <div className="user-page-bio">{user.bio}</div>
+      
+      
+
+
+
 
         {sessionUser && sessionUser.id == user.id ? (
+
+          <div className="login-buttons">
+
           <OpenModalButton
             buttonText="Add Album"
             modalComponent={<AddAlbumModal userId={user.id} />}
-          />
+            />
+            </div>
+
+
         ) : (
           <div></div>
         )}
@@ -68,9 +82,7 @@ export default function UserPage() {
 
             <div className="each-album-tile">
 
-
-
-              <Link to={`/albums/${album.id}`}>
+              <Link to={`/albums/${album.id}`} className="link-image">
                 <img
                   src={album.cover}
                   className="each-album-img"
@@ -79,12 +91,24 @@ export default function UserPage() {
               </Link>
 
 
-
-
-
+              <Link to={`/albums/${album.id}`} className="eatl">
               <div className="each-album-title">{album.title}</div>
+              </Link>
+  
 
-              <div>
+              {sessionUser && sessionUser.id == user.id ? (
+                <div className="login-buttons">
+
+                  <EDAlbumButton albumId={album.id} />
+                </div>
+                ) : (
+                  <div></div>
+                )}
+            
+
+
+
+              {/* <div>
                 {sessionUser && sessionUser.id == user.id ? (
                   <OpenModalButton
                     buttonText="Edit Album"
@@ -102,7 +126,8 @@ export default function UserPage() {
                 ) : (
                   <div></div>
                 )}
-              </div>
+              </div> */}
+
 
             </div>
           );

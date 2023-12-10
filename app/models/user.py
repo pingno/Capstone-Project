@@ -75,7 +75,11 @@ class User(db.Model, UserMixin):
             "albums":[album.to_dict() for album in self.albums],
             "posts": [post.to_dict() for post in self.posts],
             "comments": [comment.to_dict() for comment in self.comments],
-            "followers": [user.just_followers() for user in self.followers]
+            "followers": [user.just_followers() for user in self.followers],
+            
+            # "num_followers": len(self.followers),
+            # "num_albums": len(self.albums),
+            # "num_posts": len(self.posts)
 
         }
 

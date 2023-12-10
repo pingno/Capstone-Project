@@ -34,7 +34,7 @@ function AddPostModal( {albumId} ) {
         let errorList = {}
 
         if(!headline) errorList.headline = "Headline is required"
-        if(!content) errorList.content = "Title is required"
+        if(!content) errorList.content = "Content is required"
         if(!image) errorList.image = "Please add a post image (.jpg, .jpeg, .png, .gif, .pdf)"
 
         if(Object.values(errorList).length > 0) {
@@ -80,9 +80,9 @@ function AddPostModal( {albumId} ) {
             onChange={(e) => setHeadline(e.target.value)}
           />
 
-          {/* {errors.headline && (
+          {errors.headline && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.headline}</p>
-          )} */}
+          )}
 
         </label>
 
@@ -91,10 +91,13 @@ function AddPostModal( {albumId} ) {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="signup-bio"
           />
-          {/* {errors.content && (
+
+          {errors.content && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.content}</p>
-          )} */}
+          )}
+
         </label>
 
         <label>
@@ -105,12 +108,15 @@ function AddPostModal( {albumId} ) {
             onChange={(e) => setImage(e.target.files[0])}
           />
 
-          {/* {errors.description && (
-            <p style={{ fontSize: "10px", color: "red" }}>*{errors.description}</p>
-          )} */}
+          {errors.image && (
+            <p style={{ fontSize: "10px", color: "red" }}>*{errors.image}</p>
+          )}
+
         </label>
+            <div className="login-buttons">
 
         <button type="submit">Create Post</button>
+            </div>
 
         {/* {imageLoading && <p>Loading...</p>} */}
 

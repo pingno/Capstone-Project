@@ -9,12 +9,9 @@ import { fetchCreateComment } from "../../store/comments";
 function AddComment( {postId} ) {
     const dispatch = useDispatch()
 
-
     const user = useSelector((state) => state.session.user)
     const [content, setContent] = useState("")
-
     const [errors, setErrors] = useState({})
-
     const [submitted, yesSubmitted] = useState(false)
 
  
@@ -28,6 +25,7 @@ function AddComment( {postId} ) {
         let errorList = {}
 
         if(!content) errorList.content = "Please enter some text"
+        if(content.length > 200) errorList.content = "Content must be less than 200 characters"
    
         if(Object.values(errorList).length > 0) {
             setErrors(errorList);
@@ -38,7 +36,7 @@ function AddComment( {postId} ) {
         form.append("content", content)
 
         // setImageLoading(true)
-        return await dispatch(fetchCreateComment(form, postId))
+         dispatch(fetchCreateComment(form, postId))
 
     }
 
@@ -50,26 +48,23 @@ function AddComment( {postId} ) {
 
   return (
     <>
-      <div>Add Comment</div>
+
       <form onSubmit={handleSubmit}>
 
-        <ul>
-          {/* {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))} */}
-        </ul>
-        
         <label>
+          {errors.content && (
+            <p style={{ fontSize: "10px", color: "red" }}>*{errors.content}</p>
+          )}
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="post-comment-content"
           />
-          {/* {errors.content && (
-            <p style={{ fontSize: "10px", color: "red" }}>*{errors.content}</p>
-          )} */}
         </label>
 
+              <div className="login-buttons">
         <button type="submit">Add Comment</button>
+              </div>
 
       </form>
     </>

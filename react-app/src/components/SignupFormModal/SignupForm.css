@@ -25,6 +25,10 @@
     border: 1px solid black;
 }
 
+.signup-button button:disabled{
+    background-color: gray
+}
+
 .signup-bio{
     width: 100%;
     height: 100px;

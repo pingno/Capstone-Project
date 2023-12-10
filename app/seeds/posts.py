@@ -233,13 +233,52 @@ def seed_posts():
         date = datetime.now()
     )
 
+    post25 = Post(
+        user_id = 5,
+        album_id = 17,
+        headline = "Day 1, Learning unreal engine",
+        content = "I've been hearing alot of developers using unreal engine so thought I would give it a try.  It's sure gonna take me some time to get used to though.",
+        image = "https://cdn.wccftech.com/wp-content/uploads/2023/02/WCCFunrealengine59.jpg",
+        date = datetime.now()
+    )
+
+    post26 = Post(
+        user_id = 5,
+        album_id = 18,
+        headline = "Day 6 , Stopped by the carmeet",
+        content = "Got my baby a car wash and new set of shoes.  It's been looking pretty nice if you ask me.",
+        image = "https://img.benlevy.com/auto/meet/northsuburbscarscoffee20211017/img_2370.jpg",
+        date = datetime.now()
+    )
+
+    post27 = Post(
+        user_id = 5,
+        album_id = 19,
+        headline = "Day 2, Just some lofi",
+        content = "Published a few tracks on my soundcloud.  Always loved listening to the lofi genre.  If you didn't know Nujabes was considered the founder of lofi.",
+        image = "https://thumbs.dreamstime.com/b/lofi-roof-sunset-llustration-269569654.jpg",
+        date = datetime.now()
+    )
+
+    post28 = Post(
+        user_id = 5,
+        album_id = 20,
+        headline = "Day 3, A few lotus flowers",
+        content = "Saw a youtube tutorial over these and thought these would be cool to make",
+        image = "https://epjg58k4arp.exactdn.com/wp-content/uploads/2021/06/origami-lotus-main.jpg",
+        date = datetime.now()
+    )
+
+
+
+
 
     users = User.query.all()
 
-    all_posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24]
+    all_posts = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post16, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26, post27, post28]
     
     for post in all_posts:
-        usersToAdd = list(set(choices(users, k=randint(1,4))))
+        usersToAdd = list(set(choices(users, k=randint(1,5))))
         for user in usersToAdd:
             post.userLikes.append(user)
 

@@ -68,13 +68,17 @@ function EditComment( {commentId} ) {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="signup-bio"
           />
-          {/* {errors.content && (
+          {errors.content && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.content}</p>
-          )} */}
+          )}
         </label>
 
+            <div className="login-buttons">
+
         <button type="submit">Update Comment</button>
+            </div>
       </form>
 
     </>

@@ -84,13 +84,13 @@ def delete_post(id):
 
 
 # CREATE COMMENT FOR A POST
-@post_routes.route('/<int:id>/comments/create')
+@post_routes.route('/<int:id>/comments/create', methods=["POST"])
 @login_required
 def create_comment(id):
     post = Post.query.get(id)
 
-    if post.user_id == current_user.id:
-        return {"message": "Forbidden"}, 403
+    # if post.user_id == current_user.id:
+    #     return {"message": "Forbidden"}, 403
     
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -120,7 +120,7 @@ def create_comment(id):
 
 
 # LIKE
-@post_routes.route('/<int:id>/likes/add', methods=["POST"])
+@post_routes.route('/<int:id>/likes/add')
 @login_required
 def add_like(id):
 
@@ -131,8 +131,8 @@ def add_like(id):
         return {"Message": "Post not found"}, 404
     else:
         post.userLikes.append(user)
+
         db.session.commit()
-        # return [like for like in post.userLikes]
         return post.to_dict(),201
 
 
@@ -141,11 +141,15 @@ def add_like(id):
 @post_routes.route('/<int:id>/likes/remove', methods=["DELETE"])
 @login_required
 def remove_like(id):
+    
     user = User.query.get(current_user.id)
     post = Post.query.get(id)
+
     if not post:
         return {"Message": "Post not found"}, 404
+    
     else:
         post.userLikes.remove(user)
+
         db.session.commit()
         return post.to_dict(),201

@@ -1,114 +1,112 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import './AlbumPage.css'
+import "./AlbumPage.css";
 
 import { fetchAllAlbums } from "../../store/albums";
 import { fetchAllPosts } from "../../store/posts";
+import { fetchAllUsers } from "../../store/user";
+
 import EditPostModal from "../EditPostModal";
 import DeletePostModal from "../DeletePostModal";
 import OpenModalButton from "../OpenModalButton";
 import AddPostModal from "../AddPostModal";
 
+import EDPostButton from "../EDPost";
 
 export default function AlbumPage() {
-    const dispatch = useDispatch()
-    const { albumId } = useParams()
+  const dispatch = useDispatch();
+  const { albumId } = useParams();
 
-    const sessionUser = useSelector((state) => state.session.user)
-    const albumsObj = useSelector((state) => state.albums.albums) 
+  const sessionUser = useSelector((state) => state.session.user);
+  const albumsObj = useSelector((state) => state.albums.albums);
 
-    const [selectedPost, setSelectedPost] = useState(null);
- 
+  const users = useSelector((state) => state.users.users);
 
-    useEffect(() => {
-        dispatch(fetchAllPosts())
-        dispatch(fetchAllAlbums())
-    }, [dispatch])
-    
+  useEffect(() => {
+    dispatch(fetchAllPosts());
+    dispatch(fetchAllAlbums());
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
-    if (!albumsObj) return null
-    const album = albumsObj[albumId]
+  if (!albumsObj) return null;
+  const album = albumsObj[albumId];
 
-    if(!album.posts) return null
-    const albumPosts = album.posts
+  if (!album.posts) return null;
+  const albumPosts = album.posts;
 
+  if (!users) return null;
 
-    return (
-        <>
-        
-        <div className="album-container">
+  return (
+    <>
+      <div className="album-container">
+        <div className="album-1">
+          <img src={album.cover} />
+        </div>
 
-                <div className="album-1">
+        <div className="album-2-container">
+          <div className="album-2-top">
+            <Link to={`/users/${album.user_id}`}>
+              <img src={users[album.user_id].profile_image} />
+            </Link>
+            <Link to={`/users/${album.user_id}`}>
+              Created by {users[album.user_id].username}
+            </Link>
 
-                    <img src={album.cover} style={{height: "350px", width: "350px"}}/>
+            <div>
+              <div>
+                {Object.values(users[album.user_id].albums).length} Albums
+              </div>
+              <div>
+                {Object.values(users[album.user_id].posts).length} Posts
+              </div>
+              <div>
+                {Object.values(users[album.user_id].followers).length} Followers
+              </div>
+            </div>
+          </div>
 
-                </div>
+          <div className="album-2-bottom">
+            <div className="album-page-category">{album.category}</div>
+            <div className="album-page-title">{album.title}</div>
+            <div className="album-page-description">{album.description}</div>
+          </div>
+        </div>
+      </div>
 
-
-                <div className="album-2">
-                <Link to={`/users/${album.user_id}`}>View Creator</Link>
-
-
-                    <div>{album.category}</div>
-                    <div>{album.title}</div>
-                    <div>{album.description}</div>
-                </div>
-
-                </div>
-
-            {sessionUser && sessionUser.id == album.user_id ? <OpenModalButton
+      {sessionUser && sessionUser.id == album.user_id ? (
+        <div className="login-buttons">
+          <OpenModalButton
             buttonText="Add Post"
             modalComponent={<AddPostModal albumId={albumId} />}
-            /> : <div></div>}
-            
+          />
+        </div>
+      ) : (
+        <div></div>
+      )}
 
-            {selectedPost && 
-                    <>
-                    <img src={selectedPost.image} style={{height: "400px", width: "400px"}}/>
-                    <div>{selectedPost.headline}</div>
-                    <div>{selectedPost.content}</div>
-                    <div>{selectedPost.date}</div>
-                    <div>Likes {selectedPost.likes}</div>
-                    </>
-                }
+      <div className="album-posts-container">
+        {albumPosts.map((post) => {
+          return (
+            <div key={post.id} className="each-post-tile">
+              <Link to={`/posts/${post.id}`}>
+                <img src={post.image} className="album-page-post-image" />
+              </Link>
 
-            <div className="album-posts-container">
-                {albumPosts.map((post) => {
-                    return <div key={post.id} className="each-post-tile">
+              <div className="album-page-post-headline">{post.headline}</div>
 
-                        <Link to={`/posts/${post.id}`}>
-                        <img src={post.image} style={{height: "400px", width: "400px"}} 
-                        
-                        // onClick={() => {
-                        //     setSelectedPost(post)
-                        // }}/>
-
-                        />
-
-                        </Link>
-
-
-                        <div>{post.headline}</div>
-
-                        {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
-                         buttonText="Edit Post"
-                        modalComponent={<EditPostModal  postId={post.id}/>}
-                         /> : <div></div>}
-
-                        {sessionUser && sessionUser.id == post.user_id ? <OpenModalButton
-                         buttonText="Delete Post"
-                        modalComponent={<DeletePostModal postId={post.id} />}
-                         /> : <div></div>}
-
-                        </div>
-                })}
+              {sessionUser && sessionUser.id == album.user_id ? (
+                <div className="login-buttons" title="edit/delete post">
+                  <EDPostButton postId={post.id} />
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
-
-
-
-
-        </>
-    )
+          );
+        })}
+      </div>
+    </>
+  );
 }

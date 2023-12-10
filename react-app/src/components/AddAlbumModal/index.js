@@ -5,6 +5,7 @@ import { useModal } from "../../context/Modal";
 import { fetchAddAlbum } from "../../store/albums";
 import { fetchAllAlbums } from "../../store/albums";
 
+import "./AddAlbum.css"
 
 function AddAlbumModal(userId) {
     const dispatch = useDispatch()
@@ -35,6 +36,7 @@ function AddAlbumModal(userId) {
         if(!title) errorList.title = "Title is required"
         if(!description) errorList.description = "Description is required"
         if(!cover) errorList.cover = "Please add a cover image (.jpg, .jpeg, .png, .gif, .pdf)"
+  
 
         if(Object.values(errorList).length > 0) {
             setErrors(errorList);
@@ -93,9 +95,9 @@ function AddAlbumModal(userId) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
-          {/* {errors.category && (
+          {errors.category && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.category}</p>
-          )} */}
+          )}
         </label>
         <label>
           Title
@@ -105,19 +107,20 @@ function AddAlbumModal(userId) {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          {/* {errors.title && (
+          {errors.title && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.title}</p>
-          )} */}
+          )}
         </label>
         <label>
           Description
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            className="signup-bio"
           />
-          {/* {errors.description && (
+          {errors.description && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.description}</p>
-          )} */}
+          )}
         </label>
 
         <label>
@@ -128,12 +131,14 @@ function AddAlbumModal(userId) {
             onChange={(e) => setCover(e.target.files[0])}
           />
 
-          {/* {errors.cover && (
+          {errors.cover && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.cover}</p>
-          )} */}
+          )}
         </label>
 
+        <div className="login-buttons"> 
         <button type="submit">Create Album</button>
+        </div>
 
         {/* {imageLoading && <p>Loading...</p>} */}
 

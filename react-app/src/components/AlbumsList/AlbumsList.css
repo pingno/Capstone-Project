@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    margin: 50px;
+    margin: 60px 50px;
     width: 100%;
 
 
@@ -24,12 +24,24 @@
     align-items: center;
     overflow: hidden;
 
+    padding: 20px;
+    width: 90%;
+    
+
+
+}
+
+.album-tile:hover{
+    box-shadow: 1px 1px 1px 1px lightgray;
+    border-radius: 25px;
 }
 
 .album-image{
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 100%;
     border-radius: 25px;
+
+    object-fit: cover;
 
 }
 
@@ -44,6 +56,9 @@
 
 .album-tile-title{
     color: black;
+    font-size: 18px;
+    margin-top: 8px;
+
 }
 
 .album-user-image{
@@ -51,4 +66,18 @@
     width: 25px;
     border-radius: 50%;
     border: 1px solid black;
+    
+    object-fit: cover;
+}
+
+
+.album-list-block-3{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.Link{
+    color: black;
 }

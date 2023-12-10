@@ -22,8 +22,9 @@ function SignupFormModal() {
 	const [submitted, yesSubmitted] = useState(false)
 
 
-	// const defaultImage = "https://png.pngtree.com/png-vector/20221117/ourmid/pngtree-user-flat-design-long-shadow-glyph-icon-default-figure-anonymous-vector-png-image_41304650.jpg"
+	const defaultImage = "https://png.pngtree.com/png-vector/20221117/ourmid/pngtree-user-flat-design-long-shadow-glyph-icon-default-figure-anonymous-vector-png-image_41304650.jpg"
 
+	const disabled = !username || !email || !password || !bio
 
 	useEffect(() => {
 		yesSubmitted(false)
@@ -38,7 +39,8 @@ function SignupFormModal() {
 		if(!username || username.length > 20) errorList.username = "Name is required and must be less than 20 characters"
 		if(!email || !email.includes("@")) errorList.email = "Valid email is required"
 		if (!password) errorList.password = "Valid Password is required";
-		if(bio.length< 500) errorList.bio = "Bio must be less than 500 characters"
+		if (!profile_image) errorList.profile_image = "Please upload a profile image"
+		if(bio.length > 500) errorList.bio = "Bio must be less than 500 characters"
 		if (password !== confirmPassword) errorList.confirmPassword = "Passwords must match";
 
 		if(Object.values(errorList).length > 0) {
@@ -105,6 +107,8 @@ function SignupFormModal() {
 			<h1>Sign Up</h1>
 			<form onSubmit={handleSubmit} encType="multipart/form-data">
 
+			{errors && <div style={{ fontSize: "10px", color: "red" }}>{Object.values(errors)}</div>}
+
 				<label>
 					Username
 					<input
@@ -133,7 +137,7 @@ function SignupFormModal() {
 				</label>
 
 				<label>
-					Profile Image (optional)
+					Profile Image
 					<input
 						type="file"
 						accept="immage/*"
@@ -145,7 +149,7 @@ function SignupFormModal() {
 				</label>
 
 				<label>
-					Bio (optional)
+					Bio
 					<textarea
 						value={bio}
 						onChange={(e) => setBio(e.target.value)}
@@ -184,7 +188,7 @@ function SignupFormModal() {
 				</label>
 
 				<div className="signup-button">
-				<button type="submit">Sign Up</button>
+				<button type="submit" disabled={disabled}>Sign Up</button>
 				</div>
 
 				{imageLoading && <p>Loading...</p>}

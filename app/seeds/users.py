@@ -32,6 +32,25 @@ def seed_users():
         bio="What's up gang, my name is Peter and I love gaming.  I also enjoy being outdoors and experiencing new things in life.  I play a ton of games, but I don't mind being out and learning new things.  Watch me grow and be the best version of myself!"
     )
 
+    user5 = User(
+        username='bryguy', 
+        email='brian@aa.io', 
+        password='password', 
+        profile_image="https://cdn.dribbble.com/users/4467980/screenshots/10066515/boy-01_4x.png",
+        bio="My name is Brian, but you can call me BryGuy.  I'm a software developer and teacher at App Academy.  Let's geek out about our passions!"
+    )
+    
+
+
+
+
+
+
+
+
+
+
+
     user1.followers.append(user2)
     user1.followers.append(user3)
     user1.followers.append(user4)
@@ -42,11 +61,16 @@ def seed_users():
     user3.followers.append(user2)
     user4.followers.append(user1)
     user4.followers.append(user3)
+    user5.followers.append(user1)
+    user5.followers.append(user2)
+    user5.followers.append(user3)
+    user5.followers.append(user4)
+    user2.followers.append(user5)
 
 
 
 
-    all_users = [user1, user2, user3, user4]
+    all_users = [user1, user2, user3, user4, user5]
     add_users = [db.session.add(user) for user in all_users]
 
 

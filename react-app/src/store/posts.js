@@ -36,19 +36,19 @@ const addLike = (post) => ({
     post
 })
 
-const removeLike = (postId) => ({
+const removeLike = (post) => ({
     type: REMOVE_LIKE,
-    postId
+    post
 })
 
-
+//LIKE
 export const fetchAddLike = (post) => async (dispatch) => {
     const res = await fetch (`/api/posts/${post.id}/likes/add`)
 
     if(res.ok) {
         const post = await res.json()
-        dispatch(addLike(post))
-        dispatch(fetchAllPosts())
+        await dispatch(addLike(post))
+        await dispatch(fetchAllPosts())
         return post
     } else {
         const data = await res.json()
@@ -56,13 +56,16 @@ export const fetchAddLike = (post) => async (dispatch) => {
     }
 }
 
-export const fetchRemoveLike = (postId) => async (dispatch) => {
-    const res = await fetch (`/api/posts/${postId}/likes/remove`, {
+//UNLIKE
+export const fetchRemoveLike = (post) => async (dispatch) => {
+    const res = await fetch (`/api/posts/${post.id}/likes/remove`, {
         method: "DELETE"
     })
     if(res.ok) {
+        console.log("REMOVE LIKE RES", res)
         const post = await res.json()
-        dispatch(fetchAllPosts())
+        await dispatch(removeLike(post))
+        await dispatch(fetchAllPosts())
         return post
     } else {
         const data = await res.json()
@@ -117,6 +120,7 @@ export const fetchEditPost = (formData, postId) => async (dispatch) => {
         const post = await res.json();
         await dispatch(editPost(post))
         await dispatch(fetchAllAlbums())
+        await dispatch(fetchAllPosts())
         return post
     } else {
         const data = await res.json();
@@ -171,7 +175,12 @@ const postsReducer = (state = initialState, action) => {
         case ADD_LIKE:
             newState = { ...state }
             newState.posts[action.post.id] = action.post
-            return newState;
+            return newState
+
+        case REMOVE_LIKE:
+            newState = { ...state }
+            newState.posts[action.post.id] = action.post
+            return newState
 
 
         default:

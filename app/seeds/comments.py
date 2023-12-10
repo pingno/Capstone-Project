@@ -121,9 +121,40 @@ def seed_comments():
         date = datetime.now()
     )
 
+    comment17 = Comment(
+        post_id = 25,
+        user_id = 4,
+        content = "Keep up the good work!  You're killing it!",
+        date = datetime.now()
+    )
+
+    
+    comment18 = Comment(
+        post_id = 26,
+        user_id = 3,
+        content = "Sending you love",
+        date = datetime.now()
+    )
+
+    comment19 = Comment(
+        post_id = 27,
+        user_id = 2,
+        content = "LET'S GOOOOOOO",
+        date = datetime.now()
+    )
+
+    comment20 = Comment(
+        post_id = 28,
+        user_id = 1,
+        content = "Thanks for being you",
+        date = datetime.now()
+    )
+
+
+
     
 
-    all_comments = [comment1, comment2, comment3, comment4, comment5, comment6, comment7, comment8, comment9, comment10, comment11, comment12, comment13, comment14, comment15, comment16]
+    all_comments = [comment1, comment2, comment3, comment4, comment5, comment6, comment7, comment8, comment9, comment10, comment11, comment12, comment13, comment14, comment15, comment16, comment17, comment18, comment19, comment20]
     add_comments = [db.session.add(comment) for comment in all_comments]
     db.session.commit()
 

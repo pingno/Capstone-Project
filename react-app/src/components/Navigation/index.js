@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
         {sessionUser ?         
         <div>
           <Link to={`/users/${sessionUser.id}`}>
-          <img src={sessionUser.profile_image} style={{border: "2px solid black", borderRadius: "50%", height: "30px", width: "30px"}}/>
+          <img src={sessionUser.profile_image} style={{border: "2px solid black", borderRadius: "50%", height: "40px", width: "40px", objectFit: "cover"}}/>
           </Link>
              {isLoaded && <ProfileButton user={sessionUser} />}
         </div> 

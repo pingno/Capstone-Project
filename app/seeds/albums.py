@@ -143,11 +143,50 @@ def seed_albums():
         date = fake.date_between(start_date='-1y', end_date="today")
     )
 
+    album17 = Album(
+        user_id = 5,
+        category = "Coding",
+        title = "New game project",
+        cover = "https://www.michalsons.com/wp-content/uploads/2023/08/Generative-AI-in-game-development_-How-to-use-it-lawfully-e1692829628208.jpg",
+        description = "I've been working on a little something behind the scenes.  Hopefully one day I'll be able to deploy this game on steam myself.  If you're into horror games like me than I hope you follow me as well.",
+        date = fake.date_between(start_date='-1y', end_date="today")
+    )
+    album18 = Album(
+        user_id = 5,
+        category = "Car",
+        title = "My dream car",
+        cover = "https://s1.1zoom.me/b5050/111/Nissan_240SX_StanceFront_478538_2560x1440.jpg",
+        description = "Have you ever had a car you've always wanted when you were young?  Well today I finally got mine!  It's a 240sx that I picked up from a guy on marketplace.  It's in great condition too!  Now let's modify it",
+        date = fake.date_between(start_date='-1y', end_date="today")
+    )
+    album19 = Album(
+        user_id = 5,
+        category = "Music",
+        title = "Breaking beats",
+        cover = "https://www.billboard.com/wp-content/uploads/2023/04/dj-console-1260.jpg",
+        description = "Music has always fueled my soul.  No matter what genre it was, if it sounded good I loved it.  Now it's time for me to start making my own pieces to share with you all",
+        date = fake.date_between(start_date='-1y', end_date="today")
+    )
+    album20 = Album(
+        user_id = 5,
+        category = "Origami",
+        title = "Shapes come to life",
+        cover = "https://images.theconversation.com/files/66776/original/image-20141209-32156-rxbbh2.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
+        description = "When I was young, I was always bored in class and I would learn how to make paper into all kinds of shapes.  I would love to share my intricate designs with you all",
+        date = fake.date_between(start_date='-1y', end_date="today")
+    )
 
 
 
 
-    all_albums = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12, album13, album14, album15, album16]
+
+
+
+
+
+
+
+    all_albums = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12, album13, album14, album15, album16, album17, album18, album19, album20]
     add_albums = [db.session.add(album) for album in all_albums]
     db.session.commit()
 

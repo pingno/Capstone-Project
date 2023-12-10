@@ -41,7 +41,7 @@ function EditPostModal( {postId} ) {
 
         if(!headline) errorList.headline = "Headline is required"
         if(!content) errorList.content = "Title is required"
-        // if(!image) errorList.image = "Please add a post image (.jpg, .jpeg, .png, .gif, .pdf)"
+        if(!image) errorList.image = "Please add a post image (.jpg, .jpeg, .png, .gif, .pdf)"
 
         if(Object.values(errorList).length > 0) {
             setErrors(errorList);
@@ -83,9 +83,9 @@ function EditPostModal( {postId} ) {
             onChange={(e) => setHeadline(e.target.value)}
           />
 
-          {/* {errors.headline && (
+          {errors.headline && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.headline}</p>
-          )} */}
+          )}
 
         </label>
 
@@ -94,10 +94,11 @@ function EditPostModal( {postId} ) {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="signup-bio"
           />
-          {/* {errors.content && (
+          {errors.content && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.content}</p>
-          )} */}
+          )}
         </label>
 
         <label>
@@ -108,12 +109,14 @@ function EditPostModal( {postId} ) {
             onChange={(e) => setImage(e.target.files[0])}
           />
 
-          {/* {errors.description && (
-            <p style={{ fontSize: "10px", color: "red" }}>*{errors.description}</p>
-          )} */}
+          {errors.image && (
+            <p style={{ fontSize: "10px", color: "red" }}>*{errors.image}</p>
+          )}
         </label>
+        <div className="login-buttons">
 
         <button type="submit">Update Post</button>
+         </div>
 
         {/* {imageLoading && <p>Loading...</p>} */}
 
