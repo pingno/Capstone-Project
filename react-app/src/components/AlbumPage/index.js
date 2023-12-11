@@ -14,6 +14,7 @@ import OpenModalButton from "../OpenModalButton";
 import AddPostModal from "../AddPostModal";
 
 import EDPostButton from "../EDPost";
+import EDAlbumButton from "../EDAlbum";
 
 export default function AlbumPage() {
   const dispatch = useDispatch();
@@ -65,6 +66,8 @@ export default function AlbumPage() {
                 {Object.values(users[album.user_id].followers).length} Followers
               </div>
             </div>
+
+
           </div>
 
           <div className="album-2-bottom">

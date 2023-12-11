@@ -2,8 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from "../../context/Modal";
 import { fetchDeletePost } from '../../store/posts';
-import useHistory from 'react-router-dom'
-
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const DeletePostModal = ({ postId }) => {
 
