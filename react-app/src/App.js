@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import AlbumsList from "./components/AlbumsList";
 import AlbumPage from "./components/AlbumPage"
 import UserPage from "./components/UserPage"
+import LandingPage from "./components/LandingPage";
 
 import ShowPostModal from "./components/ShowPostModal";
 
@@ -25,7 +26,12 @@ function App() {
       {isLoaded && (
         <Switch>
           
+
           <Route exact path="/">
+            <LandingPage />
+          </Route>
+
+          <Route exact path="/home">
             <AlbumsList />
           </Route>
 
@@ -41,6 +47,7 @@ function App() {
             <ShowPostModal />
           </Route>
 
+          
 
         </Switch>
       )}

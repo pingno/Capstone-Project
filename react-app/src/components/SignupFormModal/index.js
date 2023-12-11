@@ -73,6 +73,7 @@ function SignupFormModal() {
 			if (data) {
 				setErrors(data);
 			} else {
+				history.push('/home')
 				closeModal();
 			}
 		} else {

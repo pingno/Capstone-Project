@@ -5,11 +5,13 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const history = useHistory()
 
   const openMenu = () => {
     if (showMenu) return;
@@ -32,6 +34,7 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    history.push('/')
     dispatch(logout());
   };
 
@@ -41,18 +44,24 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-      <i class="fa-solid fa-list"></i>
+      <i className="fa-solid fa-list dropdown-dd" ></i>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
+            <li style={{fontWeight: "bold", textAlign: 'left'}}>Username</li>
             <li>{user.username}</li>
+            <li style={{fontWeight: "bold", textAlign: 'left'}}>Email</li>
             <li>{user.email}</li>
-            <Link to={`/users/${user.id}`} style={{color: "black"}}>My Page</Link>
+            
+              <Link to={`/users/${user.id}`} className="dropdown-link">My Page</Link>
+
+              
+            
 
 
 
-            <li>
+            <li className="login-buttons">
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </>

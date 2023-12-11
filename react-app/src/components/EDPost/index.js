@@ -22,8 +22,10 @@ function EDPostButton({ postId }) {
   useEffect(() => {
     if (!showMenu) return;
 
+
+    //error here (contains)
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
+      if (!ulRef.current?.contains(e.target)) {
         setShowMenu(false);
       }
     };
@@ -35,7 +37,7 @@ function EDPostButton({ postId }) {
 
 
   
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const ulClassName = "profile-dropdown2" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (

@@ -26,19 +26,19 @@ function Navigation({ isLoaded }) {
 
       <div id="top-left">
 
-      <NavLink exact to="/">
+      <NavLink exact to="/home">
         <img src={logo} alt="logo" style={{height: "50px", width: "50px"}}/>
       </NavLink>
       
-      <Link to={``} style={{textDecoration: "none", color: "black"}}>
+      {/* <Link to={``} style={{textDecoration: "none", color: "black"}}>
             About Us
-        </Link>
+        </Link> */}
 
       
       </div>
 
       <div id="top-center">
-        <NavLink exact to="/" id="middle-link">
+        <NavLink exact to="/home" id="middle-link">
           Dayze
         </NavLink>
       </div>

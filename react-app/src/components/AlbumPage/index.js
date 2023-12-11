@@ -50,7 +50,7 @@ export default function AlbumPage() {
             <Link to={`/users/${album.user_id}`}>
               <img src={users[album.user_id].profile_image} />
             </Link>
-            <Link to={`/users/${album.user_id}`}>
+            <Link to={`/users/${album.user_id}`} className="created-by">
               Created by {users[album.user_id].username}
             </Link>
 

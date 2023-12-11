@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import * as sessionActions from "../../store/session";
 
@@ -12,6 +13,7 @@ function LoginFormModal() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
+  const history = useHistory()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
+        history.push('/home')
         closeModal()
     }
   };
@@ -31,7 +34,7 @@ function LoginFormModal() {
     return dispatch(sessionActions.login({
       email: "matt@aa.io",
       password: "password"
-    })).then(closeModal)
+    })).then(history.push('/home')).then(closeModal)
 }
 
 

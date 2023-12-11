@@ -101,3 +101,17 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+
+
+.created-by{
+    text-decoration: none;
+    color: black;
+
+    font-size: 22px;
+    font-family: Arial;
+
+}
+
+.created-by:hover{
+    font-weight: bold;
+}

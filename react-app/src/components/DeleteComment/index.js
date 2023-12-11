@@ -17,10 +17,13 @@ const DeleteComment = ({ commentId }) => {
 
   return (
     <div className='delete-modal'>
-      <h2>Confirm Delete</h2>
-      <p>Are you sure you want to delete this Comment?</p>
+      <h2 style={{fontFamily: "Arial"}}>Confirm Delete</h2>
+      <p style={{fontFamily: "Arial"}}>Are you sure you want to delete this Comment?</p>
+      <div className="login-buttons">
+
       <button onClick={handleDelete}>Yes,delete my comment.</button>
       <button onClick={closeModal}>No, keep my comment.</button>
+      </div>
     </div>
   );
 };

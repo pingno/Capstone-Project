@@ -60,7 +60,7 @@ function ShowPostModal() {
     <>
       <Link to={`/albums/${post.album_id}`} style={{textDecoration: "none",}}>
         <i className="fa-solid fa-arrow-left" style={{color: "black"}}></i>
-        <div style={{ color: "black"}}>Back to album</div>
+        <div style={{ color: "black", fontFamily: "Arial"}}>Back to album</div>
       </Link>
 
 
@@ -76,7 +76,7 @@ function ShowPostModal() {
 
           <i className="fa-solid fa-thumbs-up" onClick={(e) => addLike()} style={{cursor: "pointer"}}></i>
           <i className="fa-solid fa-thumbs-down" onClick={(e) => removeLike()} style={{cursor: "pointer"}}></i>
-          {post.likes} Likes 
+          <div style={{fontFamily: "Arial"}}>{post.likes} Likes </div>
             </div>
         </div>
 
