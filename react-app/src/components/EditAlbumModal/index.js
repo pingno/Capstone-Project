@@ -71,7 +71,7 @@ function EditAlbumModal( {albumId} ) {
 
   return (
     <>
-      <h1>Create Album</h1>
+      <h1>Update Album</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <ul>
           {/* {errors.map((error, idx) => (
@@ -85,9 +85,9 @@ function EditAlbumModal( {albumId} ) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
-          {/* {errors.category && (
+          {errors.category && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.category}</p>
-          )} */}
+          )}
         </label>
         <label>
           Title
@@ -97,19 +97,20 @@ function EditAlbumModal( {albumId} ) {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          {/* {errors.title && (
+          {errors.title && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.title}</p>
-          )} */}
+          )}
         </label>
         <label>
           Description
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            style={{width: "100%", height: "150px"}}
           />
-          {/* {errors.description && (
+          {errors.description && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.description}</p>
-          )} */}
+          )}
         </label>
 
         <label>
@@ -125,7 +126,10 @@ function EditAlbumModal( {albumId} ) {
           )} */}
         </label>
 
+          <div className="login-buttons">
+
         <button type="submit">Update Album</button>
+          </div>
 
         {/* {imageLoading && <p>Loading...</p>} */}
 
