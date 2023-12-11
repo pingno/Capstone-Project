@@ -133,9 +133,9 @@ function ShowPostModal() {
       <div className="login-buttons" title="edit/delete post"> 
       <EDPostButton postId={postId}/> 
       </div>
-      
-      
       : <></>}
+
+      
     </>
   );
 }

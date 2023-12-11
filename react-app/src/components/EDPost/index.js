@@ -37,7 +37,7 @@ function EDPostButton({ postId }) {
 
 
   
-  const ulClassName = "profile-dropdown2" + (showMenu ? "" : " hidden");
+  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (
