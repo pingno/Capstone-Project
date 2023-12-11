@@ -36,7 +36,8 @@ function AddComment( {postId} ) {
         form.append("content", content)
 
         // setImageLoading(true)
-         dispatch(fetchCreateComment(form, postId))
+        dispatch(fetchCreateComment(form, postId)).then(setContent(""))
+ 
 
     }
 

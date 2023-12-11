@@ -19,6 +19,7 @@ const DeleteComment = ({ commentId }) => {
     <div className='delete-modal'>
       <h2 style={{fontFamily: "Arial"}}>Confirm Delete</h2>
       <p style={{fontFamily: "Arial"}}>Are you sure you want to delete this Comment?</p>
+      
       <div className="login-buttons">
 
       <button onClick={handleDelete}>Yes,delete my comment.</button>

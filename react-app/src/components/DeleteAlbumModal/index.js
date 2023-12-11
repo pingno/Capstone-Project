@@ -17,10 +17,15 @@ const DeleteAlbumModal = ({ albumId }) => {
 
   return (
     <div className='delete-modal'>
-      <h2>Confirm Delete</h2>
-      <p>Are you sure you want to delete this Album?</p>
+      <h2 style={{fontFamily: "Arial"}}>Confirm Delete</h2>
+      <p style={{fontFamily: "Arial"}}>Are you sure you want to delete this Album?</p>
+
+      <div className="login-buttons">
+        
       <button onClick={handleDelete}>Yes,delete my album.</button>
       <button onClick={closeModal}>No, keep my album.</button>
+
+      </div>
     </div>
   );
 };
