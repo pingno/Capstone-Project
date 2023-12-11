@@ -26,21 +26,26 @@ function Navigation({ isLoaded }) {
 
       <div id="top-left">
 
-      <NavLink exact to="/home">
+        {sessionUser ? <NavLink exact to="/home">
         <img src={logo} alt="logo" style={{height: "50px", width: "50px"}}/>
-      </NavLink>
-      
-      {/* <Link to={``} style={{textDecoration: "none", color: "black"}}>
-            About Us
-        </Link> */}
+      </NavLink> : <NavLink exact to="/">
+        <img src={logo} alt="logo" style={{height: "50px", width: "50px"}}/>
+      </NavLink>}
 
-      
+
+    
       </div>
 
       <div id="top-center">
-        <NavLink exact to="/home" id="middle-link">
+
+      {sessionUser ? <NavLink exact to="/home" id="middle-link">
           Dayze
-        </NavLink>
+        </NavLink> : <NavLink exact to="/" id="middle-link">
+          Dayze
+        </NavLink>}
+
+
+
       </div>
 
       <div>

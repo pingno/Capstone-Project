@@ -26,7 +26,8 @@
 }
 
 .signup-button button:disabled{
-    background-color: gray
+    background-color: gray;
+    cursor: none;
 }
 
 .signup-bio{
