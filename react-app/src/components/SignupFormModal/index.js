@@ -39,6 +39,7 @@ function SignupFormModal() {
 		if(!username || username.length > 20) errorList.username = "Name is required and must be less than 20 characters"
 		if(!email || !email.includes("@")) errorList.email = "Valid email is required"
 		if (!password) errorList.password = "Valid Password is required";
+		if(password.length < 6) errorList.password = "Password must be longer than 6 characters"
 		if (!profile_image) errorList.profile_image = "Please upload a profile image"
 		if(bio.length > 500) errorList.bio = "Bio must be less than 500 characters"
 		if (password !== confirmPassword) errorList.confirmPassword = "Passwords must match";

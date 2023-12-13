@@ -9,6 +9,7 @@ import AlbumPage from "./components/AlbumPage"
 import UserPage from "./components/UserPage"
 import LandingPage from "./components/LandingPage";
 import ShowPostModal from "./components/ShowPostModal";
+import Footer from "./components/Footer"
 
 
 
@@ -48,10 +49,13 @@ function App() {
             <ShowPostModal />
           </Route>
 
-          
-
         </Switch>
+
+
+
       )}
+      
+      <Footer />
     </>
   );
 }

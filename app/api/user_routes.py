@@ -38,7 +38,9 @@ def current_followers():
 
 
 # FOLLOW
-@user_routes.route('/<int:id>/follow', methods=["POST"])
+# @user_routes.route('/<int:id>/follow', methods=["POST"])
+@user_routes.route('/<int:id>/follow')
+
 @login_required
 def follow_user(id):
     """

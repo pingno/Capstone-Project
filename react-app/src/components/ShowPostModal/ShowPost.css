@@ -15,7 +15,7 @@
 
 
     padding: 15px;
-    border: 2px solid lightblue;
+    border: 2px solid rgb(0, 214, 252);
     box-shadow: 2px 2px 10px 3px lightskyblue;
 
     height: 500px;
@@ -40,15 +40,20 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
+    margin: 15px;
 }
 .pp-content{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    margin: 5px 0px;
+    margin: 10px 0px;
+
+    
 }
 
 .pp-numcomments{
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 
 }
 
@@ -58,6 +63,12 @@
     border-radius: 10px;
 
     padding: 10px;
+    width: 95%;
+    height: 200px;
+    margin-bottom: 10px;
+
+    overflow: auto;
+    font-style: italic;
 }
 
 .comment-tile{
@@ -70,4 +81,32 @@
     width: 95%;
     border-radius: 25px;
     padding: 10px;
+}
+
+.post-right{
+    padding-right: 10px;
+}
+
+
+.thumbs {
+    height: 25px;
+    width: 50px;
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 25px;
+
+}
+
+.thumbs:hover {
+    border: 1px solid rgb(0, 214, 252);
+}
+
+.all-thumbs{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 }

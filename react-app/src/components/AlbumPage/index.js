@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./AlbumPage.css";
 
+import { fetchFollow } from "../../store/user";
+import { fetchUnfollow } from "../../store/user";
+
+
 import { fetchAllAlbums } from "../../store/albums";
 import { fetchAllPosts } from "../../store/posts";
 import { fetchAllUsers } from "../../store/user";
@@ -39,6 +43,16 @@ export default function AlbumPage() {
 
   if (!users) return null;
 
+
+  const follow = () => {
+    dispatch(fetchFollow(users[album.user_id].id));
+  };
+
+  const unfollow = () => {
+    dispatch(fetchUnfollow(users[album.user_id].id));
+  };
+
+
   return (
     <>
       <div className="album-container">
@@ -51,11 +65,15 @@ export default function AlbumPage() {
             <Link to={`/users/${album.user_id}`}>
               <img src={users[album.user_id].profile_image} />
             </Link>
+
+
+            <div className="atop2">
+
             <Link to={`/users/${album.user_id}`} className="created-by">
               Created by {users[album.user_id].username}
             </Link>
 
-            <div>
+            <div className="album-top3">
               <div>
                 {Object.values(users[album.user_id].albums).length} Albums
               </div>
@@ -66,6 +84,35 @@ export default function AlbumPage() {
                 {Object.values(users[album.user_id].followers).length} Followers
               </div>
             </div>
+
+
+            {sessionUser &&
+        sessionUser.id != users[album.user_id].id &&
+        users[album.user_id].followers.filter((follower) => follower.id == sessionUser.id).length ? (
+          <div className="login-buttons">
+            <button onClick={() => unfollow()}>Unfollow</button>
+          </div>
+        ) : (
+          <></>
+        )}
+
+      {sessionUser &&
+        sessionUser.id != users[album.user_id].id &&
+        !users[album.user_id].followers.filter((follower) => follower.id == sessionUser.id).length ? (
+          <div className="login-buttons">
+            <button onClick={() => follow()}>Follow</button>
+          </div>
+        ) : (
+          <></>
+        )}
+
+
+            </div>
+
+
+            
+
+
 
 
           </div>

@@ -4,8 +4,6 @@ import { useModal } from "../../context/Modal";
 import { fetchDeletePost } from '../../store/posts';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-// import { useSelector } from 'react-redux';
-// import { fetchAllAlbums } from '../../store/albums';
 
 const DeletePostModal = ({ postId }) => {
 
@@ -13,19 +11,10 @@ const DeletePostModal = ({ postId }) => {
   const {closeModal} = useModal();
   const history = useHistory()
 
-  // const albums = useSelector((state) => state.albums.albums)
-
-  // useEffect(() => {
-    
-  //   dispatch(fetchAllAlbums())
-
-  // }, [dispatch])
-
-
 
   const handleDelete = async (e) => {
     e.preventDefault();
-      dispatch(fetchDeletePost(postId)).catch(res => console.log(res)).then(closeModal).then(history.push(`/home`));
+      dispatch(fetchDeletePost(postId)).catch(res => console.log(res)).then(closeModal).then(history.goBack());
     }
 
 

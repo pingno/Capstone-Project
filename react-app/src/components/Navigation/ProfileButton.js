@@ -49,10 +49,10 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li style={{fontWeight: "bold", textAlign: 'left'}}>Username</li>
-            <li>{user.username}</li>
-            <li style={{fontWeight: "bold", textAlign: 'left'}}>Email</li>
-            <li>{user.email}</li>
+            <li style={{fontWeight: "bold", textAlign: 'left', paddingBottom: "3px"}}>Username</li>
+            <li style={{paddingBottom: "3px"}}>{user.username}</li>
+            <li style={{fontWeight: "bold", textAlign: 'left', paddingBottom: "3px"}}>Email</li>
+            <li style={{paddingBottom: "10px"}}>{user.email}</li>
             
               <Link to={`/users/${user.id}`} className="dropdown-link">My Page</Link>
 
