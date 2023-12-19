@@ -7,6 +7,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import AddAlbumModal from "../AddAlbumModal";
+import About from "../About";
 
 import logo from './logo.png'
 
@@ -31,6 +32,12 @@ function Navigation({ isLoaded }) {
       </NavLink> : <NavLink exact to="/">
         <img src={logo} alt="logo" style={{height: "50px", width: "50px"}}/>
       </NavLink>}
+
+
+      <div className="login-buttons">
+      <NavLink exact to="/about"><button>About Us</button></NavLink>
+    </div>
+
 
 
     

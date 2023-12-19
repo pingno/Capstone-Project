@@ -1,9 +1,7 @@
 import React from "react";
 
 
-function EditAlbumModal( ) {
-
-
+function About( ) {
 
   return (
     <>
@@ -19,14 +17,15 @@ function EditAlbumModal( ) {
 
         At Dayze, we understand the power of progress. Every step you take, every project you embark on, and every passion you pursue is a testament to your unique journey. Our platform is built to celebrate these moments – big or small. Through posts, images, and comments, you can connect with a community that appreciates the effort you put into your endeavors.
 
-        Key Features:
+
 
         Album Creation: Build personalized albums that reflect your interests, passions, and projects. Whether it's your fitness journey, art creations, or travel adventures, Dayze is your canvas to curate and showcase.
         Progress Posts: Share your progress with the world through dynamic posts. Document your achievements, challenges, and lessons learned. Inspire others and be inspired by the journeys of fellow Dayze users.
         Community Engagement: Connect with a vibrant community of individuals who share your interests. Engage in conversations, offer encouragement, and discover new perspectives from users around the globe.
 
+
     </>
   );
 }
 
-export default EditAlbumModal;
+export default About;

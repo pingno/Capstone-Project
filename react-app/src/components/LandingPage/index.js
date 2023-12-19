@@ -35,13 +35,13 @@ function LandingPage(){
         <div className="landing-background">
 
         <div className="landing-page-container">
-            <div>
+            <h1>
             Welcome to Dayze
-            </div>
+            </h1>
 
             A social platform built for a community to share their ideas, interests, and passions.  
-            Instead of starting one day, here you can start at day one.  No matter how far you are in your journey,
-             what matters is what you do during the process.  
+            Instead of starting one day, the best day to start is today!  No matter how far you are in your journey,
+             what matters is what takes place during the process.  
 
         <div className="login-buttons">
 
