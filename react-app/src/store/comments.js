@@ -12,7 +12,7 @@ const REMOVE_COMMENT = "comments/REMOVE_COMMENT"
 
 const getAllComments = (comments) => ({
     type: GET_ALL_COMMENTS,
-    comments
+    comments 
 })
 
 const addComment = (comment) => ({
