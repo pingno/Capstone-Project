@@ -1,148 +1,75 @@
-# Flask React Project
+Dayze
 
-This is the starter for the Flask React project.
-
-## Getting started
-1. Clone this repository (only this branch)
-
-2. Install dependencies
-
-      ```bash
-      pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-
-4. Make sure the SQLite3 database connection URL is in the **.env** file
-
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
-
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+Dayze is a social platform for people to share their journeys and passions in life with other like minded individuals.  Users can sign up and interact with other users to support each other's progress in whatever goals or hobbies they have.  
 
 
-## Deployment through Render.com
+Live Link
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+https://dayze.onrender.com
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+Tech Stack 
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+Frameworks and LIbraries
+[Title](https://camo.githubusercontent.com/a1b2dac5667822ee0d98ae6d799da61987fd1658dfeb4d2ca6e3c99b1535ebd8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f707974686f6e2d3336373041303f7374796c653d666f722d7468652d6261646765266c6f676f3d707974686f6e266c6f676f436f6c6f723d666664643534)
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+[Title](https://camo.githubusercontent.com/43c40e9f61f01e780f4cfed5dafda9e3494310ba1b6ea11e20c4949e556a47c3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666c61736b2d2532333030302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d666c61736b266c6f676f436f6c6f723d7768697465)
 
-### Part A: Configure the Start and Build Commands
+[Title](https://camo.githubusercontent.com/aeddc848275a1ffce386dc81c04541654ca07b2c43bbb8ad251085c962672aea/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a6176617363726970742d2532333332333333302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d253233463744463145)
 
-Start by giving your application a name.
+[Title](https://camo.githubusercontent.com/ab4c3c731a174a63df861f7b118d6c8a6c52040a021a552628db877bd518fe84/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742d2532333230323332612e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642)
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+[Title](https://camo.githubusercontent.com/9a7c7ebbabb2096c0ad0cac6f64bc9fe93f4954a3ae3f51d6f3e076ba462aab1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656475782d2532333539336438382e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d7265647578266c6f676f436f6c6f723d7768697465)
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+[Title](https://camo.githubusercontent.com/e6b67b27998fca3bccf4c0ee479fc8f9de09d91f389cccfbe6cb1e29c10cfbd7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f637373332d2532333135373242362e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d63737333266c6f676f436f6c6f723d7768697465)
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+[Title](https://camo.githubusercontent.com/49fbb99f92674cc6825349b154b65aaf4064aec465d61e8e1f9fb99da3d922a1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f68746d6c352d2532334533344632362e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465)
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+Database:
+[Title](https://camo.githubusercontent.com/29e7fc6c62f61f432d3852fbfa4190ff07f397ca3bde27a8196bcd5beae3ff77/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706f7374677265732d2532333331363139322e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d706f737467726573716c266c6f676f436f6c6f723d7768697465)
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+Hosting:
+[Title](https://camo.githubusercontent.com/05020a4e2cf996983147d3a6bc5eff61195b8a5270914acc37018f8e6d7dcf14/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656e6465722d253436453342372e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d72656e646572266c6f676f436f6c6f723d7768697465)
 
-Now, add your start command in the Start field:
 
-```shell
-# start script
-gunicorn app:app
-```
+Index
+[Feature List][https://github.com/pingno/Capstone-Project/wiki/Features-List] | [Database Schema][https://github.com/pingno/Capstone-Project/wiki/Database-Schema] | [User Stories][https://github.com/pingno/Capstone-Project/wiki/User's-Stories] | [Wireframe][https://github.com/pingno/Capstone-Project/wiki/Wireframe] | [Future Implementation][https://github.com/pingno/Capstone-Project/wiki/Future-Implementations]
 
-_If you are using websockets, use the following start command instead for increased performance:_
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+# API Endpoints
 
-### Part B: Add the Environment Variables
+## Auth
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+### 'GET /api/auth/'
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+This fetch is sent upon initial app load and on subsequent refreshes.
+It returns an object representing the current user, if user is logged in.
 
-Add the following keys and values in the Render GUI form:
+**Request:**
+ - Purpose: This fetch
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
 
-Add the following keys and values:
 
-- DATABASE_URL (copy value from Internal Database URL field)
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
 
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
+Landing Page
+User Page
+Album List Page
+Album Page
+Post Page
 
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
+Endpoints
 
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
+Auth
+Album
+Post
+Comment
+
+
+Feature List
+Future Implementation Goals
+
+Connect
+[Linkedin][https://www.linkedin.com/in/peang-ngo-840860112/]
