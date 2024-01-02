@@ -11,7 +11,7 @@ import LandingPage from "./components/LandingPage";
 import ShowPostModal from "./components/ShowPostModal";
 import Footer from "./components/Footer"
 
-
+import About from "./components/About"
 
 
 function App() {
@@ -47,6 +47,10 @@ function App() {
 
           <Route exact path="/posts/:postId">
             <ShowPostModal />
+          </Route>
+
+          <Route exact path="/about">
+            <About />
           </Route>
 
         </Switch>

@@ -1,13 +1,13 @@
 import React from "react";
-
+import './About.css'
 
 function About( ) {
 
   return (
-    <>
-        <div>Welcome to Dayze:</div>
+    <div className="about-container">
+        <div>Welcome to Dayze</div>
 
-        Hello, and welcome to Dayze - the social platform designed to empower you to share your passions, interests, and journey with the world. We believe that every moment, every project, and every passion deserves its own space to flourish. Dayze is your canvas, where you can turn your ideas into vibrant albums and share your progress through inspiring posts.
+        The social platform designed to empower you to share your passions, interests, and journey with the world. We believe that every moment, every project, and every passion deserves its own space to flourish. Dayze is your canvas, where you can turn your ideas into vibrant albums and share your progress through inspiring posts.
 
         <div>What is Dayze?</div>
 
@@ -19,12 +19,24 @@ function About( ) {
 
 
 
+        <div>About the Creator</div>
+        <div>Hi, my name is Peang!</div>
+        <div>Throughout my life, I've harbored a keen interest in various fields and engaged in numerous hobbies. However, some of these interests remained mere concepts, lacking a clear roadmap for implementation. While I did pursue my passions, I found myself hesitant to explore alternative opportunities, unsure of where to begin.
+
+
+      I've consistently advocated for others to follow their ideas or pursue their passions, emphasizing the importance of taking that initial step and embracing the learning process. The motivation behind creating this social platform was to inspire individuals to embark on their own journeys, encouraging them to step into whatever endeavor they believe will bring them joy.
+
+        </div>
+
+
+    <br>
+    </br>
         Album Creation: Build personalized albums that reflect your interests, passions, and projects. Whether it's your fitness journey, art creations, or travel adventures, Dayze is your canvas to curate and showcase.
-        Progress Posts: Share your progress with the world through dynamic posts. Document your achievements, challenges, and lessons learned. Inspire others and be inspired by the journeys of fellow Dayze users.
+    <br></br>    Progress Posts: Share your progress with the world through dynamic posts. Document your achievements, challenges, and lessons learned. Inspire others and be inspired by the journeys of fellow Dayze users.
         Community Engagement: Connect with a vibrant community of individuals who share your interests. Engage in conversations, offer encouragement, and discover new perspectives from users around the globe.
 
 
-    </>
+    </div>
   );
 }
 
