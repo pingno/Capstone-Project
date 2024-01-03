@@ -1,58 +1,99 @@
-Dayze
+# Dayze
 
 Dayze is a social platform for people to share their journeys and passions in life with other like minded individuals.  Users can sign up and interact with other users to support each other's progress in whatever goals or hobbies they have.  
 
 
-Live Link
-
+# Live Link
 https://dayze.onrender.com
 
-Tech Stack 
+## Tech Stack 
 
-Frameworks and LIbraries
-[Title](https://camo.githubusercontent.com/a1b2dac5667822ee0d98ae6d799da61987fd1658dfeb4d2ca6e3c99b1535ebd8/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f707974686f6e2d3336373041303f7374796c653d666f722d7468652d6261646765266c6f676f3d707974686f6e266c6f676f436f6c6f723d666664643534)
+### Frameworks and Libraries
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 
-[Title](https://camo.githubusercontent.com/43c40e9f61f01e780f4cfed5dafda9e3494310ba1b6ea11e20c4949e556a47c3/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f666c61736b2d2532333030302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d666c61736b266c6f676f436f6c6f723d7768697465)
+ ### Database:
+ ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+  
+ ### Hosting:
+ ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-[Title](https://camo.githubusercontent.com/aeddc848275a1ffce386dc81c04541654ca07b2c43bbb8ad251085c962672aea/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a6176617363726970742d2532333332333333302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d253233463744463145)
-
-[Title](https://camo.githubusercontent.com/ab4c3c731a174a63df861f7b118d6c8a6c52040a021a552628db877bd518fe84/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742d2532333230323332612e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642)
-
-[Title](https://camo.githubusercontent.com/9a7c7ebbabb2096c0ad0cac6f64bc9fe93f4954a3ae3f51d6f3e076ba462aab1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656475782d2532333539336438382e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d7265647578266c6f676f436f6c6f723d7768697465)
-
-[Title](https://camo.githubusercontent.com/e6b67b27998fca3bccf4c0ee479fc8f9de09d91f389cccfbe6cb1e29c10cfbd7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f637373332d2532333135373242362e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d63737333266c6f676f436f6c6f723d7768697465)
-
-[Title](https://camo.githubusercontent.com/49fbb99f92674cc6825349b154b65aaf4064aec465d61e8e1f9fb99da3d922a1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f68746d6c352d2532334533344632362e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465)
-
-
-Database:
-[Title](https://camo.githubusercontent.com/29e7fc6c62f61f432d3852fbfa4190ff07f397ca3bde27a8196bcd5beae3ff77/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f706f7374677265732d2532333331363139322e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d706f737467726573716c266c6f676f436f6c6f723d7768697465)
-
-Hosting:
-[Title](https://camo.githubusercontent.com/05020a4e2cf996983147d3a6bc5eff61195b8a5270914acc37018f8e6d7dcf14/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656e6465722d253436453342372e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d72656e646572266c6f676f436f6c6f723d7768697465)
 
 
 Index
 [Feature List][https://github.com/pingno/Capstone-Project/wiki/Features-List] | [Database Schema][https://github.com/pingno/Capstone-Project/wiki/Database-Schema] | [User Stories][https://github.com/pingno/Capstone-Project/wiki/User's-Stories] | [Wireframe][https://github.com/pingno/Capstone-Project/wiki/Wireframe] | [Future Implementation][https://github.com/pingno/Capstone-Project/wiki/Future-Implementations]
 
 
-# API Endpoints
+# Endpoints
 
 ## Auth
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
 
-### 'GET /api/auth/'
+| GET /api/auth/        | This fetch is sent upon initial app load and on subsequent refreshes.<br>It returns an object representing the current user, if user is logged in.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
 
-This fetch is sent upon initial app load and on subsequent refreshes.
-It returns an object representing the current user, if user is logged in.
+| POST /api/auth/signup        | This fetch sends the form data signup from data to the backend to process the creation of a new user.<br>It returns an object representing the current user, after logging them in, if account creation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
 
-**Request:**
- - Purpose: This fetch
+| POST /api/auth/login | This fetch attempts to login a user with the provided credentials.<br>It returns an object representing the current user, if validation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>| 
 
-
-
-
+| POST /api/auth/logout | This fetch will logout the current user.<br>It returns an object with the message 'User logged Out' if it succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
 
 
+## Auth
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+
+| GET /api/auth/        | This fetch is sent upon initial app load and on subsequent refreshes.<br>It returns an object representing the current user, if user is logged in.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
+
+| POST /api/auth/signup        | This fetch sends the form data signup from data to the backend to process the creation of a new user.<br>It returns an object representing the current user, after logging them in, if account creation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
+
+| POST /api/auth/login | This fetch attempts to login a user with the provided credentials.<br>It returns an object representing the current user, if validation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>| 
+
+| POST /api/auth/logout | This fetch will logout the current user.<br>It returns an object with the message 'User logged Out' if it succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+## Albums
+
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+
+| GET /api/albums/int:album_id        | This fetch is sent to retrieve all album info for the album specified by the id. Upon success, we return that album in a dictionary                          | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 200<br>|
+
+| POST /api/albums/create      | This fetch is sent to add a new album if the user is currently logged in.                                   | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 201<br>|
+
+| PUT /api/albums/int:album_id/edit | This fetch is sent to update the album info specified by album id.  Upon success, we return a dictionary                              | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>| 
+
+| DELETE /api/albums/int:album_id/delete | Thsi fetch will delete the album from the user's albums as well as all albums.  Upon success, it will return a message saying Album successfully deleted                                | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+
+## Posts
+
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+
+| GET /api/albums/int:album_id        | This fetch is sent to retrieve all album info for the album specified by the id. Upon success, we return that album in a dictionary                          | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 200<br>|
+
+| POST /api/albums/create      | This fetch is sent to add a new album if the user is currently logged in.                                   | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 201<br>|
+
+| PUT /api/albums/int:album_id/edit | This fetch is sent to update the album info specified by album id.  Upon success, we return a dictionary                              | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>| 
+
+| DELETE /api/albums/int:album_id/delete | Thsi fetch will delete the album from the user's albums as well as all albums.  Upon success, it will return a message saying Album successfully deleted                                | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+
+## Comments
+
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+
+| GET /api/albums/int:album_id        | This fetch is sent to retrieve all album info for the album specified by the id. Upon success, we return that album in a dictionary                          | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 200<br>|
+
+| POST /api/albums/create      | This fetch is sent to add a new album if the user is currently logged in.                                   | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 201<br>|
+
+| PUT /api/albums/int:album_id/edit | This fetch is sent to update the album info specified by album id.  Upon success, we return a dictionary                              | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>| 
+
+| DELETE /api/albums/int:album_id/delete | Thsi fetch will delete the album from the user's albums as well as all albums.  Upon success, it will return a message saying Album successfully deleted                                | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+
+## Likes
+## Followers
 
 Landing Page
 User Page
