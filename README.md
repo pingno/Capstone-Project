@@ -50,7 +50,32 @@ Index
 | :----------------------------- | :--------------------: | :------------------------------ |
 | GET /api/posts        | This fetch is sent to retrieve all posts.<br>Upon success, we return a list of dictionaries                  | ARRAY[{<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}]<br><br>Status: 200<br>|
 | GET /api/posts/int:post_id        | This fetch is sent to retrieve a single post.<br>Upon success, we return a dictionary representing that post                        | {<br>&nbsp;&nbsp;&nbsp;'id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT,<br>&nbsp;&nbsp;&nbsp;'comments': ARRAY, ,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>&nbsp;&nbsp;&nbsp;'num_comments': INT <br>}<br><br>Status: 200<br>|
-| POST /api/albums/int:album_id/posts/create      | This fetch is sent to add a new album if the user is currently logged in.<br>Upon success, we return a dictionary of that post                                
+| POST /api/albums/int:album_id/posts/create      | This fetch is sent to add a new album if the user is currently logged in.<br>Upon success, we return a dictionary of that post                  | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'album_id': INT,<br>&nbsp;&nbsp;&nbsp;'user_id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE <br>}<br><br>Status: 201<br>|
+| PUT /api/posts/int:post_id/edit | This fetch is sent to update the post info specified by the post id that's been created by the user.<br>Upon success, we return a dictionary of the updated post.                             | {<br>&nbsp;&nbsp;&nbsp;'id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT,<br>&nbsp;&nbsp;&nbsp;'comments': ARRAY, ,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>&nbsp;&nbsp;&nbsp;'num_comments': INT <br>}<br><br>Status: 200<br>| 
+| DELETE /api/posts/int:post_id/delete | This fetch sends the post id in the body of the request.<br>Upon successful deletion, we return a message "Post successfully deleted".                                | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+
+## Comments
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+| GET /api/comments/int:comment_id        | This fetch is sent to retrieve the comment info.<br>Upon success, we return the info in the form of a dictionary                          | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING}<br><br>Status: 200<br>|
+| POST /api/posts/int:post_id/comments/create      | This fetch is sent to add a new comment under the given post_id.<br>Upon success, we return the comment in the form of a dictionary                                | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING}<br><br>Status: 201<br>|
+| PUT /api/comments/int:comment_id/edit | This fetch is sent to update the comment info specified by the comments id.<br>Upon success, we return the comment in the form of a dictionary                    | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING}<br><br>Status: 200<br>|
+| DELETE /api/albums/int:album_id/delete | This fetch will delete the comment from the user's post.<br>Upon success, it will return a message saying Comment successfully deleted                                | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING}<br><br>Status: 200<br>|
+
+
+## Likes
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+| GET /api/posts/int:post_id/likes/add       | This fetch is sent to add a like under the post given the post id.<br>Upon success, we return the updated post in the form of a dictionary.                        | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING}<br><br>Status: 201<br>|
+| DELETE /api/posts/int:post_id/likes/remove | This fetch is sent to remove a like under the post given the post id.<br>Upon success, we return the updated post in the form of a dictionary.                               | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'comment': STRING}<br><br>Status: 201<br>|
+
+
+## Followers
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+| GET /api/users/int:user_id/follow     | This fetch is sent to add a follow under the user given the user id.<br>Upon success, it returns a list of the user's followers                        | {<br>&nbsp;&nbsp;&nbsp;'id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT,<br>&nbsp;&nbsp;&nbsp;'comments': ARRAY, ,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>&nbsp;&nbsp;&nbsp;'num_comments': INT <br>} <br><br>Status: 200<br>|
+| DELETE /api/users/int:user_id/unfollow| This fetch is sent to remove a follow under the user given the user id.<br>Upon success, it returns a list of the user's followers                              | {<br>&nbsp;&nbsp;&nbsp;'id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT,<br>&nbsp;&nbsp;&nbsp;'comments': ARRAY, ,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>&nbsp;&nbsp;&nbsp;'num_comments': INT <br>}<br><br>Status: 201<br>|              
 
 
 
