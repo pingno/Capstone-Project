@@ -26,76 +26,32 @@ Index
 # Endpoints
 
 ## Auth
-| Request                       | Purpose                                              | Return Value              |
-| :---------------------------- | :--------------------------------------------------- | :------------------------ |
-| GET /api/auth/                | Fetch upon initial app load and refresh. Returns current user object if logged in. | `{ 'id': INT, 'username': STRING, 'email': STRING }`<br>Status: 200 |
-
-| POST /api/auth/signup         | Sends form data for signup. Returns current user object after successful signup. | `{ 'id': INT, 'username': STRING, 'email': STRING }`<br>Status: 200 |
-
-| POST /api/auth/login          | Attempts to log in a user with provided credentials. Returns current user object if validation succeeds. | `{ 'id': INT, 'username': STRING, 'email': STRING }`<br>Status: 200 |
-
-| POST /api/auth/logout         | Logs out the current user. Returns `{ 'message': STRING }` upon success. | `{ 'message': STRING }`<br>Status: 200 |
-
-## Albums
-| Request                       | Purpose                                              | Return Value              |
-| :---------------------------- | :--------------------------------------------------- | :------------------------ |
-| GET /api/albums               | Retrieves all album info for all albums. Returns a list of dictionaries. | `[ { 'id': INT, 'category': STRING, 'title': STRING, 'description': STRING, 'cover': IMAGE, 'date': STRING, 'user_id': INT } ]`<br>Status: 200 |
-
-| GET /api/albums/int:album_id  | Retrieves album info for the specified album ID. Returns a dictionary. | `{ 'id': INT, 'category': STRING, 'title': STRING, 'description': STRING, 'cover': IMAGE, 'date': STRING, 'user_id': INT, 'posts': ARRAY }`<br>Status: 200 |
-
-| POST /api/albums/create       | Adds a new album if the user is logged in. Returns the created album. | `{ 'id': INT, 'category': STRING, 'title': STRING, 'description': STRING, 'cover': IMAGE, 'date': DATE, 'user_id': INT }`<br>Status: 201 |
-
-| PUT /api/albums/int:album_id/edit | Updates the album info specified by album ID. Returns the updated album. | `{ 'id': INT, 'category': STRING, 'title': STRING, 'description': STRING, 'cover': IMAGE, 'date': DATE, 'user_id': INT }`<br>Status: 200 |
-
-| DELETE /api/albums/int:album_id/delete | Deletes the specified album. Returns `{ 'message': STRING }` upon success. | `{ 'message': STRING }`<br>Status: 200 |
-
-## Posts
-| Request                       | Purpose                                              | Return Value              |
-| :---------------------------- | :--------------------------------------------------- | :------------------------ |
-| GET /api/posts                | Retrieves all posts. Returns a list of dictionaries. | `[ { 'id': INT, 'headline': STRING, 'content': STRING, 'image': STRING, 'date': DATE, 'album_id': INT, 'user_id': INT } ]`<br>Status: 200 |
-
-| GET /api/posts/int:post_id    | Retrieves a single post. Returns a dictionary. | `{ 'id': INT, 'headline': STRING, 'content': STRING, 'image': STRING, 'date': DATE, 'album_id': INT, 'user_id': INT, 'comments': ARRAY, 'likes': INT, 'num_comments': INT }`<br>Status: 200 |
-
-| POST /api/albums/int:album_id/posts/create | Adds a new post under the specified album ID. Returns the created post. | `{ 'id': INT, 'album_id': INT, 'user_id': INT, 'headline': STRING, 'content': STRING, 'date': DATE }`<br>Status: 201 |
-
-| PUT /api/posts/int:post_id/edit | Updates the post info specified by post ID. Returns the updated post. | `{ 'id': INT, 'headline': STRING, 'content': STRING, 'image': STRING, 'date': DATE, 'album_id': INT, 'user_id': INT, 'comments': ARRAY, 'likes': INT, 'num_comments': INT }`<br>Status: 200 |
-
-| DELETE /api/posts/int:post_id/delete | Deletes the specified post. Returns `{ 'message': STRING }` upon success. | `{ 'message': STRING }`<br>Status: 200 |
-
-## Comments
-| Request                       | Purpose                                              | Return Value              |
-| :---------------------------- | :--------------------------------------------------- | :------------------------ |
-| GET /api/comments/int:comment_id | Retrieves comment info. Returns a dictionary. | `{ 'id': INT, 'comment': STRING }`<br>Status: 200 |
-
-| POST /api/posts/int:post_id/comments/create | Adds a new comment under the specified post ID. Returns the created comment. | `{ 'id': INT, 'comment': STRING }`<br>Status: 201 |
-
-| PUT /api/comments/int:comment_id/edit | Updates the comment info specified by comment ID. Returns the updated comment. | `{ 'id': INT, 'comment': STRING }`<br>Status: 200 |
-
-| DELETE /api/comments/int:comment_id/delete | Deletes the specified comment from the user's post. Returns `{ 'id': INT, 'comment': STRING }` upon success. | `{ 'id': INT, 'comment': STRING }`<br>Status: 200 |
-
-## Likes
-| Request                       | Purpose                                              | Return Value              |
-| :---------------------------- | :--------------------------------------------------- | :------------------------ |
-| GET /api/posts/int:post_id/likes/add | Adds a like under the specified post ID. Returns the updated post. | `{ 'id': INT, 'comment': STRING }`<br>Status: 201 |
-
-| DELETE /api/posts/int:post_id/likes/remove | Removes a like under the specified post ID. Returns the updated post. | `{ 'id': INT, 'comment': STRING }`<br>Status: 201 |
-
-## Followers
-| Request                       | Purpose                                              | Return Value              |
-| :---------------------------- | :--------------------------------------------------- | :------------------------ |
-| GET /api/users/int:user_id/follow | Adds a follow under the specified user ID. Returns a list of the user's followers. | `{ 'id': INT, 'headline': STRING, 'content': STRING, 'image': STRING, 'date': DATE, 'album_id': INT, 'user_id': INT, 'comments': ARRAY, 'likes': INT, 'num_comments': INT }`<br>Status: 200 |
-
-| DELETE /api/users/int:user_id/unfollow | Removes a follow under the specified user ID. Returns a list of the user's followers. | `{ 'id': INT, 'headline': STRING, 'content': STRING, 'image': STRING, 'date': DATE, 'album_id': INT, 'user_id': INT, 'comments': ARRAY, 'likes': INT, 'num_comments': INT }`<br>Status: 201 |
-
-
-## Auth
 | Request                        | Purpose                | Return Value  |                  
 | :----------------------------- | :--------------------: | :------------------------------ |
-| GET /api/auth/        | This fetch is sent upon initial app load and on subsequent refreshes.<br>It returns an object representing the current user, if user is logged in.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
+| GET /api/auth/        | This fetch is sent upon initial app load and on subsequent refreshes.<br>It returns an object representing the current user if the user is logged in.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
+| POST /api/auth/signup        | This fetch sends the form data signup to the backend to process the creation of a new user.<br>It returns an object representing the current user after logging them in if account creation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
+| POST /api/auth/login | This fetch attempts to log in a user with the provided credentials.<br>It returns an object representing the current user if validation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>| 
+| POST /api/auth/logout | This fetch will log out the current user.<br>It returns an object with the message 'User logged Out' if it succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
 | POST /api/auth/unauthorized      | This endpoint will be routed to in the case that a protected route does not pass validations for the current user.<br>It returns an object with an errors property, which is an array with the value 'Unauthorized'          | {<br>&nbsp;&nbsp;&nbsp;'errors': ARRAY[STRINGS]<br>}<br><br>Status: 401<br>|
-| POST /api/auth/signup        | This fetch sends the form data signup from data to the backend to process the creation of a new user.<br>It returns an object representing the current user, after logging them in, if account creation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|
-| POST /api/auth/login | This fetch attempts to login a user with the provided credentials.<br>It returns an object representing the current user, if validation succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'username': STRING,<br>&nbsp;&nbsp;&nbsp;'email': STRING,<br>}<br><br>Status: 200<br>|                                                                        
-| POST /api/auth/logout | This fetch will logout the current user.<br>It returns an object with the message 'User logged Out' if it succeeds.                                 | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+
+## Albums
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+| GET /api/albums        | This fetch is sent to retrieve all album info for all albums.<br>Upon success, the data will return as a value for Albums as a list of dictionaries                          | [ARRAY: {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}]<br><br>Status: 200<br>|
+| GET /api/albums/int:album_id        | This fetch is sent to retrieve all album info for the album specified by the id.<br>Upon success, we return that album in a dictionary                          | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': STRING, <br>&nbsp;&nbsp;&nbsp;'user_id': INT, <br>&nbsp;&nbsp;&nbsp;'posts': ARRAY <br>}<br><br>Status: 200<br>|
+| POST /api/albums/create      | This fetch is sent to add a new album if the user is currently logged in.                                   | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 201<br>|
+| PUT /api/albums/int:album_id/edit | This fetch is sent to update the album info specified by album id.<br>Upon success, we return a dictionary                              | {<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'category': STRING,<br>&nbsp;&nbsp;&nbsp;'title': STRING, <br>&nbsp;&nbsp;&nbsp;'description': STRING, <br>&nbsp;&nbsp;&nbsp;'cover': IMAGE, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}<br><br>Status: 200<br>| 
+| DELETE /api/albums/int:album_id/delete | This fetch will delete the album from the user's albums as well as all albums.<br>Upon success, it will return a message saying Album successfully deleted                                | {<br>&nbsp;&nbsp;&nbsp;'message': STRING<br>}<br><br>Status: 200<br>|
+
+
+## Posts
+| Request                        | Purpose                | Return Value  |                  
+| :----------------------------- | :--------------------: | :------------------------------ |
+| GET /api/posts        | This fetch is sent to retrieve all posts.<br>Upon success, we return a list of dictionaries                  | ARRAY[{<br>&nbsp;&nbsp;&nbsp;'id': INT,<br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT <br>}]<br><br>Status: 200<br>|
+| GET /api/posts/int:post_id        | This fetch is sent to retrieve a single post.<br>Upon success, we return a dictionary representing that post                        | {<br>&nbsp;&nbsp;&nbsp;'id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT,<br>&nbsp;&nbsp;&nbsp;'comments': ARRAY, ,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>&nbsp;&nbsp;&nbsp;'num_comments': INT <br>}<br><br>Status: 200<br>|
+| POST /api/albums/int:album_id/posts/create      | This fetch is sent to add a new album if the user is currently logged in.<br>Upon success, we return a dictionary of that post                                
+
 
 
 
