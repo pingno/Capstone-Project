@@ -71,7 +71,7 @@ Index
 
 | PUT /api/comments/int:comment_id/edit | Updates the comment info specified by comment ID. Returns the updated comment. | `{ 'id': INT, 'comment': STRING }`<br>Status: 200 |
 
-| DELETE /api/albums/int:album_id/delete | Deletes the specified comment from the user's post. Returns `{ 'id': INT, 'comment': STRING }` upon success. | `{ 'id': INT, 'comment': STRING }`<br>Status: 200 |
+| DELETE /api/comments/int:comment_id/delete | Deletes the specified comment from the user's post. Returns `{ 'id': INT, 'comment': STRING }` upon success. | `{ 'id': INT, 'comment': STRING }`<br>Status: 200 |
 
 ## Likes
 | Request                       | Purpose                                              | Return Value              |
