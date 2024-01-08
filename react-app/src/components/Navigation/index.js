@@ -34,9 +34,9 @@ function Navigation({ isLoaded }) {
       </NavLink>}
 
 
-      <div className="login-buttons">
+      {/* <div className="login-buttons">
       <NavLink exact to="/about"><button>About Us</button></NavLink>
-    </div>
+    </div> */}
 
 
 
@@ -88,6 +88,13 @@ function Navigation({ isLoaded }) {
         {/* <ProfileButton user={sessionUser} /> */}
 
         <>
+
+
+          <div className="top-right-right">
+
+            
+          </div>
+
         <div className="login-buttons">
 
             <OpenModalButton
@@ -101,6 +108,9 @@ function Navigation({ isLoaded }) {
               />
 
             </div>
+
+
+            
 
           </>
 

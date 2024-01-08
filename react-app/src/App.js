@@ -49,9 +49,9 @@ function App() {
             <ShowPostModal />
           </Route>
 
-          <Route exact path="/about">
+          {/* <Route exact path="/about">
             <About />
-          </Route>
+          </Route> */}
 
         </Switch>
 

@@ -12,19 +12,31 @@ function Footer(){
 
             <div style={{paddingBottom: "8px"}}>
                 Dayze
-            Created by Peang Ngo
+            created by Peang Ngo
                 </div>
 
 <div>
-<Link to="https://www.linkedin.com/in/peang-ngo-840860112/" className="footer-link">
+            <a href="https://www.linkedin.com/in/peang-ngo-840860112/" className="footer-link">
              <i className="fa-brands fa-linkedin"></i>
              Linkedin
-            </Link>
+            </a>
             
-             <Link to="https://github.com/pingno" className="footer-link" style={{paddingLeft: "25px"}}>
+             <a href="https://github.com/pingno" className="footer-link" style={{paddingLeft: "25px"}}>
              <i className="fa-brands fa-github"></i>
                 Github
-             </Link>
+             </a>
+
+             <a href="https://github.com/pingno/Capstone-Project" className="footer-link" style={{paddingLeft: "25px"}}>
+             <i class="fa-solid fa-code-commit"></i>
+                Repo
+             </a>
+
+             <a href="https://pingno.github.io/" className="footer-link" style={{paddingLeft: "25px"}}>
+             <i class="fa-solid fa-user-tie"></i>
+                Portfolio
+             </a>
+
+
 </div>
             
         </div>

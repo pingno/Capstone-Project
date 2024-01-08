@@ -20,7 +20,7 @@ https://dayze.onrender.com
 
 
 Index
-[Feature List][https://github.com/pingno/Capstone-Project/wiki/Features-List] | [Database Schema][https://github.com/pingno/Capstone-Project/wiki/Database-Schema] | [User Stories][https://github.com/pingno/Capstone-Project/wiki/User's-Stories] | [Wireframe][https://github.com/pingno/Capstone-Project/wiki/Wireframe] | [Future Implementation][https://github.com/pingno/Capstone-Project/wiki/Future-Implementations]
+[Feature List](https://github.com/pingno/Capstone-Project/wiki/Features-List) | [Database Schema](https://github.com/pingno/Capstone-Project/wiki/Database-Schema) | [User Stories](https://github.com/pingno/Capstone-Project/wiki/User's-Stories) | [Wireframe](https://github.com/pingno/Capstone-Project/wiki/Wireframe) | [Future Implementation](https://github.com/pingno/Capstone-Project/wiki/Future-Implementations)
 
 
 # Endpoints
