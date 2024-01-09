@@ -22,6 +22,30 @@ https://dayze.onrender.com
 Index
 [Feature List](https://github.com/pingno/Capstone-Project/wiki/Features-List) | [Database Schema](https://github.com/pingno/Capstone-Project/wiki/Database-Schema) | [User Stories](https://github.com/pingno/Capstone-Project/wiki/User's-Stories) | [Wireframe](https://github.com/pingno/Capstone-Project/wiki/Wireframe) | [Future Implementation](https://github.com/pingno/Capstone-Project/wiki/Future-Implementations)
 
+Landing Page
+![image](https://i.imgur.com/I9C86CX.png)
+User Page
+![image](https://i.imgur.com/CsPWPnd.png)
+Album List Page
+![image](https://i.imgur.com/QSEGBwT.png)
+Album Page
+![image](https://i.imgur.com/k3TCWQx.png)
+Post Page
+![image](https://i.imgur.com/RUyFIrh.png)
+
+
+Feature List
+Future Implementation Goals
+- Websocket.io
+- Theme changer
+
+Connect
+[Linkedin][https://www.linkedin.com/in/peang-ngo-840860112/]
+
+
+
+
+
 
 # Endpoints
 
@@ -78,26 +102,3 @@ Index
 | DELETE /api/users/int:user_id/unfollow| This fetch is sent to remove a follow under the user given the user id.<br>Upon success, it returns a list of the user's followers                              | {<br>&nbsp;&nbsp;&nbsp;'id': INT, <br>&nbsp;&nbsp;&nbsp;'headline': STRING, <br>&nbsp;&nbsp;&nbsp;'content': STRING, <br>&nbsp;&nbsp;&nbsp;'image': STRING, <br>&nbsp;&nbsp;&nbsp;'date': DATE, <br>&nbsp;&nbsp;&nbsp;'album_id': INT, <br>&nbsp;&nbsp;&nbsp;'user_id': INT,<br>&nbsp;&nbsp;&nbsp;'comments': ARRAY, ,<br>&nbsp;&nbsp;&nbsp;'likes': INT,<br>&nbsp;&nbsp;&nbsp;'num_comments': INT <br>}<br><br>Status: 201<br>|              
 
 
-
-
-Landing Page
-User Page
-Album List Page
-Album Page
-Post Page
-
-Endpoints
-
-Auth
-Album
-Post
-Comment
-
-
-Feature List
-Future Implementation Goals
-- Websocket.io
-- Theme changer
-
-Connect
-[Linkedin][https://www.linkedin.com/in/peang-ngo-840860112/]
