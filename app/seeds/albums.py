@@ -96,7 +96,7 @@ def seed_albums():
         user_id = 3,
         category = "Long Boarding",
         title = "Picked up long boarding",
-        cover = "https://media.cntraveller.com/photos/611bedc0db797d0116fd4b7c/master/w_320%2Cc_limit/17longboard.jpg",
+        cover = "https://www.saltypeaks.com/wordpress/wp-content/uploads/2012/09/longboard-girls-3.jpg",
         description = "I recently picked up long boarding!  I was so excited to get my board and try it out, but I face planted and got a few scratches or bruises, but it's a learning process and it's a whole new way for me to feel free and enjoy the landscape.  Loving it so far!",
         date = fake.date_between(start_date='-1y', end_date="today")
     )
