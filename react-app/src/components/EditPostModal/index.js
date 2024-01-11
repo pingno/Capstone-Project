@@ -9,7 +9,7 @@ import { fetchAllPosts } from "../../store/posts";
 import { fetchCreatePost } from "../../store/posts";
 import { fetchEditPost } from "../../store/posts";
 
-
+import './EditPostModal.css'
 
 function EditPostModal( {postId} ) {
     const dispatch = useDispatch()
@@ -78,7 +78,7 @@ function EditPostModal( {postId} ) {
 
 
   return (
-    <>
+    <div className="edpostmodal">
       <h1>Edit Post</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <ul>
@@ -124,7 +124,7 @@ function EditPostModal( {postId} ) {
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.image}</p>
           )}
         </label>
-        <div className="login-buttons">
+        <div className="lb2">
 
         <button type="submit">Update Post</button>
          </div>
@@ -132,7 +132,7 @@ function EditPostModal( {postId} ) {
         {loading && <p className="loading-div">Loading...</p>}
 
       </form>
-    </>
+    </div>
   );
 }
 

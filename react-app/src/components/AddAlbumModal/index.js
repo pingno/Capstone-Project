@@ -96,7 +96,7 @@ function AddAlbumModal(userId) {
 
   return (
     <div className="create-album-container">
-      <h1 className="ca-1">Let's create a new album</h1>
+      <h1 className="ca-1">Create a new album</h1>
       <div className="ca-2"></div>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <ul>
@@ -152,7 +152,7 @@ function AddAlbumModal(userId) {
           )}
         </label>
 
-        <div className="login-buttons"> 
+        <div className="lb2"> 
         <button type="submit">Add Album</button>
         </div>
 

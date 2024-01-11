@@ -10,6 +10,12 @@ import App from "./App";
 
 import "./index.css";
 
+import ReactGA from 'react-ga';const TRACKING_ID = "UA-298483257-1"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
+
+
+
+
 const store = configureStore();
 
 if (process.env.NODE_ENV !== "production") {

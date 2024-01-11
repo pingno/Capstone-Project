@@ -73,9 +73,9 @@ function AddPostModal( {albumId} ) {
 
 
   return (
-    <>
+    <div style={{margin: "25px"}}>
       <h1>Create Post</h1>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" >
         <ul>
           {/* {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -122,7 +122,7 @@ function AddPostModal( {albumId} ) {
           )}
 
         </label>
-            <div className="login-buttons">
+            <div className="lb2">
 
         <button type="submit">Create Post</button>
             </div>
@@ -130,7 +130,7 @@ function AddPostModal( {albumId} ) {
             {loading && <p className="loading-div">Loading...</p>}
 
       </form>
-    </>
+    </div>
   );
 }
 

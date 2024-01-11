@@ -1,0 +1,11 @@
+.edpostmodal{
+    margin: 20px;
+}
+
+.edpostmodal input{
+    height: 25px;
+}
+
+.edpostmodal label{
+    padding-bottom: 15px;
+}

@@ -96,7 +96,7 @@ function Navigation({ isLoaded }) {
         <div className="login-buttons">
 
             <OpenModalButton
-              buttonText="Log In"
+              buttonText="Login"
               modalComponent={<LoginFormModal />}
               />
 

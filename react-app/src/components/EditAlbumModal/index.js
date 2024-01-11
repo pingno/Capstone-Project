@@ -6,6 +6,7 @@ import { useModal } from "../../context/Modal";
 import { fetchAllAlbums } from "../../store/albums";
 import { fetchUpdateAlbum } from "../../store/albums";
 
+import "./EditAlbumModal.css"
 
 function EditAlbumModal( {albumId} ) {
     const dispatch = useDispatch()
@@ -82,9 +83,9 @@ function EditAlbumModal( {albumId} ) {
 
 
   return (
-    <>
+    <div style={{margin: "20px"}}>
       <h1>Update Album</h1>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="update-album-form">
         <ul>
           {/* {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -138,7 +139,7 @@ function EditAlbumModal( {albumId} ) {
           )} */}
         </label>
 
-          <div className="login-buttons">
+          <div className="lb2">
 
         <button type="submit">Update Album</button>
           </div>
@@ -146,7 +147,7 @@ function EditAlbumModal( {albumId} ) {
           {loading && <p className="loading-div">Loading...</p>}
 
       </form>
-    </>
+    </div>
   );
 }
 

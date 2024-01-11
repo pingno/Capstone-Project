@@ -53,7 +53,7 @@ function EditComment( {commentId} ) {
 
 
   return (
-    <>
+    <div style={{margin: "18px"}}>
       <h1>Edit Comment</h1>
       <form onSubmit={handleSubmit}>
 
@@ -75,13 +75,13 @@ function EditComment( {commentId} ) {
           )}
         </label>
 
-            <div className="login-buttons">
+            <div className="lb2">
 
         <button type="submit">Update Comment</button>
             </div>
       </form>
 
-    </>
+    </div>
   );
 }
 

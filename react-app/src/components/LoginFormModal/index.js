@@ -42,6 +42,7 @@ function LoginFormModal() {
   return (
     <div className="form-container">
       <h1>Welcome back!</h1>
+      <div className="login-h2">We've missed you</div>
       
 
       <form onSubmit={handleSubmit}>
@@ -68,10 +69,11 @@ function LoginFormModal() {
             
           />
         </label>
-        <div className="login-buttons">
+        <div className="lb2">
 
-        <button type="submit">Log In</button>
-        <button onClick={handleDemoUser}>Demo User</button>
+        <button type="submit">Login</button>
+
+        <button onClick={handleDemoUser} >Login as Demo User</button>
         </div>
       </form>
     </div>

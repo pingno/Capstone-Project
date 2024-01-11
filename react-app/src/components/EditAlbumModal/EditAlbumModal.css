@@ -1,0 +1,8 @@
+.update-album-form label{
+    padding-bottom: 15px;
+}
+
+.update-album-form input{
+    height: 25px;
+    padding: 5px;
+}
