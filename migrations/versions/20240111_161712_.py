@@ -1,19 +1,21 @@
 """empty message
 
-Revision ID: fb0e84b9d035
+Revision ID: 77d569227fa7
 Revises: 
-Create Date: 2024-01-08 19:03:21.792493
+Create Date: 2024-01-11 16:17:12.881827
 
 """
-from alembic import op
-import sqlalchemy as sa
-
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
+
+from alembic import op
+import sqlalchemy as sa
+
+
 # revision identifiers, used by Alembic.
-revision = 'fb0e84b9d035'
+revision = '77d569227fa7'
 down_revision = None
 branch_labels = None
 depends_on = None
