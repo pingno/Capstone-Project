@@ -14,7 +14,7 @@ const DeletePostModal = ({ postId }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-      dispatch(fetchDeletePost(postId)).catch(res => console.log(res)).then(closeModal).then(history.goBack());
+      dispatch(fetchDeletePost(postId)).then(closeModal).then(history.goBack());
     }
 
 

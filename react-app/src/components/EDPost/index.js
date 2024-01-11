@@ -7,6 +7,8 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import EditPostModal from '../EditPostModal'
 import DeletePostModal from '../DeletePostModal'
 
+import "./EDPost.css"
+
 
 function EDPostButton({ postId }) {
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ function EDPostButton({ postId }) {
 
 
   
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const ulClassName = "profile-dropdown3" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (

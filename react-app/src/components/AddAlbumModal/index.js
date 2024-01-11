@@ -22,6 +22,8 @@ function AddAlbumModal(userId) {
     const [imageLoading, setImageLoading] = useState(false)
     const [submitted, yesSubmitted] = useState(false)
 
+    const [loading, setLoading] = useState(false)
+
 
     useEffect(() => {
         dispatch(fetchAllAlbums())
@@ -54,18 +56,31 @@ function AddAlbumModal(userId) {
         // if(cover) newAlbum.cover = cover
         // setImageLoading(true)
 
-        const res = await dispatch(fetchAddAlbum(form))
+        // const res = await dispatch(fetchAddAlbum(form))
+        // if(res.errors) {
+        //     setErrors(res.errors)
+        // } else {
+        //     closeModal()
+        // }
+
+        setLoading(true)
+
+        dispatch(fetchAddAlbum(form)).then((res) => {
+          setLoading(false)
         if(res.errors) {
             setErrors(res.errors)
         } else {
             closeModal()
-        }
-
-
-        if(!res.errors){
             history.push(`/users/${user.id}`)
             yesSubmitted(true)
         }
+        })
+        
+
+        // if(!res.errors){
+        //     history.push(`/users/${user.id}`)
+        //     yesSubmitted(true)
+        // }
         
     }
 
@@ -80,8 +95,9 @@ function AddAlbumModal(userId) {
 
 
   return (
-    <>
-      <h1>Create Album</h1>
+    <div className="create-album-container">
+      <h1 className="ca-1">Let's create a new album</h1>
+      <div className="ca-2"></div>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <ul>
           {/* {errors.map((error, idx) => (
@@ -137,13 +153,13 @@ function AddAlbumModal(userId) {
         </label>
 
         <div className="login-buttons"> 
-        <button type="submit">Create Album</button>
+        <button type="submit">Add Album</button>
         </div>
 
-        {/* {imageLoading && <p>Loading...</p>} */}
+        {loading && <p className="loading-div">Loading...</p>}
 
       </form>
-    </>
+    </div>
   );
 }
 

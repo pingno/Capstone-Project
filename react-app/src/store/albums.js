@@ -46,7 +46,6 @@ export const fetchAllAlbums = () => async (dispatch) => {
         return albums
     } else {
         const data = await res.json();
-        console.log(data)
         return data
     }
 }
@@ -66,11 +65,9 @@ export const fetchAddAlbum = (formData) => async (dispatch) => {
             return album
         } else {
             const data = await res.json();
-            console.log("There was an error creating album")
             return data
         }
     } catch (error) {
-        console.error('error occurred', error);
         return [' error occurred'];
     }
 }
@@ -87,17 +84,14 @@ export const fetchUpdateAlbum = (formData, albumId) => async(dispatch) => {
 
         if(res.ok) {
             const product = await res.json();
-            console.log('this is the dataproduct', product)
             dispatch(editAlbum(product))
             dispatch(fetchAllAlbums())
             return product
         } else {
             const data = await res.json();
-            console.log("There was an error updating product",data)
             return data;
         }
     } catch (error) {
-        console.error('error occurred', error);
         return [' error occurred'];
     }
 }

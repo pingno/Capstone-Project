@@ -23,6 +23,8 @@ function EditAlbumModal( {albumId} ) {
     const [imageLoading, setImageLoading] = useState(false)
     const [submitted, yesSubmitted] = useState(false)
 
+    const [loading, setLoading] = useState(false)
+
 
     useEffect(() => {
         dispatch(fetchAllAlbums())
@@ -50,16 +52,26 @@ function EditAlbumModal( {albumId} ) {
         form.append("description", description)
         form.append("cover", cover)
 
-        // if(cover) newAlbum.cover = cover
-        // setImageLoading(true)
 
-        const res = await dispatch(fetchUpdateAlbum(form, albumId)).then(closeModal())
+        setLoading(true)
 
-        if(!res.errors){
+        dispatch(fetchUpdateAlbum(form, albumId)).then((res) => {
+          setLoading(false)
+          
+          if(!res.errors){
+            closeModal()
             history.push(`/users/${user.id}`)
             yesSubmitted(true)
 
         }
+
+        })
+
+        
+
+
+
+
     }
 
 
@@ -131,7 +143,7 @@ function EditAlbumModal( {albumId} ) {
         <button type="submit">Update Album</button>
           </div>
 
-        {/* {imageLoading && <p>Loading...</p>} */}
+          {loading && <p className="loading-div">Loading...</p>}
 
       </form>
     </>

@@ -21,7 +21,6 @@ export default function AlbumsList() {
 
   const albums = Object.values(albumsArr);
 
-  console.log("ALL USERS", users);
 
   return (
     <div className="albums-list">

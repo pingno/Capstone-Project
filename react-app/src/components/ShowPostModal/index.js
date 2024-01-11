@@ -59,8 +59,8 @@ function ShowPostModal() {
   return (
     <>
       <Link to={`/albums/${post.album_id}`} style={{ textDecoration: "none" }}>
-        <i className="fa-solid fa-arrow-left" style={{ color: "black" }}></i>
-        <div style={{ color: "black", fontFamily: "Arial" , fontWeight: "Bold"}}>Back to album</div>
+        
+        <div style={{ color: "black", fontFamily: "Arial" , fontWeight: "Bold"}}><i className="fa-solid fa-arrow-left" style={{ color: "black" }}></i> Back to album</div>
       </Link>
 
       <div className="post-post-container">
@@ -96,7 +96,7 @@ function ShowPostModal() {
                       {users[comment.user_id].username}
                     </div>
 
-                    <div className="ppc-content">{comment.content}</div>
+                    <div className="ppc-content">{comment.content} </div>
 
                     {user && user.id == comment.user_id ? (
                       <div
@@ -121,7 +121,7 @@ function ShowPostModal() {
       </div>
 
       {user.id == post.user_id ? (
-        <div className="login-buttons" title="edit/delete post">
+        <div className="login-buttons" title="edit/delete post" style={{paddingBottom: "10px"}}>
           <EDPostButton postId={postId} />
         </div>
       ) : (

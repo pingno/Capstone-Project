@@ -41,7 +41,7 @@ function SignupFormModal() {
 		if (!password) errorList.password = "Valid Password is required";
 		if(password.length < 6) errorList.password = "Password must be longer than 6 characters"
 		if (!profile_image) errorList.profile_image = "Please upload a profile image"
-		if(bio.length > 500) errorList.bio = "Bio must be less than 500 characters"
+		if(bio.length > 500 || bio.length < 1) errorList.bio = "Bio is required and must be less than 500 characters"
 		if (password !== confirmPassword) errorList.confirmPassword = "Passwords must match";
 
 		if(Object.values(errorList).length > 0) {
@@ -106,10 +106,11 @@ function SignupFormModal() {
 
 	return (
 		<>
-			<h1>Sign Up</h1>
-			<form onSubmit={handleSubmit} encType="multipart/form-data">
+			<h1>Join our community today!</h1>
+			<div className="signup-h2">start your journey here</div>
+			<form onSubmit={handleSubmit} encType="multipart/form-data" className="signup-form">
 
-			{errors && <div style={{ fontSize: "10px", color: "red" }}>{Object.values(errors)}</div>}
+			{/* {errors && <div style={{ fontSize: "10px", color: "red" }}>{Object.values(errors)}</div>} */}
 
 				<label>
 					Username
@@ -117,7 +118,7 @@ function SignupFormModal() {
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
-						required
+						
 					/>
 					{errors.username && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.username}</p>
@@ -130,7 +131,7 @@ function SignupFormModal() {
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
-						required
+						
 					/>
 				{errors.email && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.email}</p>
@@ -146,7 +147,9 @@ function SignupFormModal() {
 						onChange={(e) => setProfile_Image(e.target.files[0])}
 
 					/>
-
+{errors.profile_image && (
+            <p style={{ fontSize: "10px", color: "red" }}>*{errors.profile_image}</p>
+          )}
 					
 				</label>
 
@@ -168,7 +171,7 @@ function SignupFormModal() {
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						required
+						
 					/>
 
 			{errors.password && (
@@ -181,17 +184,25 @@ function SignupFormModal() {
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
+						
 					/>
 
-{errors.confirmPassword && (
+			{errors.confirmPassword && (
             <p style={{ fontSize: "10px", color: "red" }}>*{errors.confirmPassword}</p>
           )}
 				</label>
 
+		
+
+
+
 				<div className="signup-button">
-				<button type="submit" disabled={disabled}>Sign Up</button>
+				<button type="submit" >Sign Up</button>
 				</div>
+
+			
+
+
 
 				{imageLoading && <p>Loading...</p>}
 			</form>

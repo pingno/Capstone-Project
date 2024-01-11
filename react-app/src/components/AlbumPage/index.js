@@ -29,6 +29,10 @@ export default function AlbumPage() {
 
   const users = useSelector((state) => state.users.users);
 
+  const [loading, setLoading] = useState(false)
+
+
+
   useEffect(() => {
     dispatch(fetchAllPosts());
     dispatch(fetchAllAlbums());
@@ -45,11 +49,17 @@ export default function AlbumPage() {
 
 
   const follow = () => {
-    dispatch(fetchFollow(users[album.user_id].id));
+    setLoading(true)
+    dispatch(fetchFollow(users[album.user_id].id)).then((res) => {
+      setLoading(false)
+    })
   };
 
   const unfollow = () => {
-    dispatch(fetchUnfollow(users[album.user_id].id));
+    setLoading(true)
+    dispatch(fetchUnfollow(users[album.user_id].id)).then((res) => {
+      setLoading(false)
+    })
   };
 
 
@@ -91,6 +101,7 @@ export default function AlbumPage() {
         users[album.user_id].followers.filter((follower) => follower.id == sessionUser.id).length ? (
           <div className="login-buttons">
             <button onClick={() => unfollow()}>Unfollow</button>
+            {loading && <p className="loading-div">Loading...</p>}
           </div>
         ) : (
           <></>
@@ -101,6 +112,7 @@ export default function AlbumPage() {
         !users[album.user_id].followers.filter((follower) => follower.id == sessionUser.id).length ? (
           <div className="login-buttons">
             <button onClick={() => follow()}>Follow</button>
+            {loading && <p className="loading-div">Loading...</p>}
           </div>
         ) : (
           <></>

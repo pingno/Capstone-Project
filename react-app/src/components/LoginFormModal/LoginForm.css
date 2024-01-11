@@ -53,3 +53,15 @@ form {
 }
 
 
+
+.form-container label{
+    margin-bottom: 15px;
+}
+
+.form-container input{
+    height: 25px;
+}
+
+.form-container{
+    margin: 20px;
+}

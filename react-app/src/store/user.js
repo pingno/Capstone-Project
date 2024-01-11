@@ -70,7 +70,6 @@ export const fetchAllUsers = () => async(dispatch) => {
 		return users
 	} else {
 		const data = await res.json()
-		console.log(data)
 		return data
 	}
 }
@@ -85,7 +84,6 @@ export const fetchUser = (userId) => async (dispatch) => {
 		return user;
 	} else {
 		const data = await res.json()
-		console.log(data)
 		return data
 	}
 }
@@ -99,7 +97,6 @@ export default function userReducer(state = initialState, action) {
 
 		case GET_USERS:
 			newState = { ...state }
-			console.log("ACTION USERS", action.users)
             newState.users = normalizeObj(action.users)
             return newState
             

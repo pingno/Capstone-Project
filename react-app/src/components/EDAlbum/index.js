@@ -34,7 +34,7 @@ function EDAlbumButton({ albumId }) {
 
 
   
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const ulClassName = "profile-dropdown2" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (
@@ -44,7 +44,7 @@ function EDAlbumButton({ albumId }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
 
-          <>
+          <div className="pd2">
             <OpenModalButton
               buttonText="Edit Album"
               onItemClick={closeMenu}
@@ -56,7 +56,7 @@ function EDAlbumButton({ albumId }) {
               onItemClick={closeMenu}
               modalComponent={<DeleteAlbumModal albumId={albumId} />}
             />
-          </>
+          </div>
 
       </ul>
     </>

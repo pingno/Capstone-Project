@@ -11,7 +11,7 @@ const DeleteComment = ({ commentId }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-      dispatch(fetchDeleteComment(commentId)).catch(res => console.log(res)).then(closeModal);
+      dispatch(fetchDeleteComment(commentId)).then(closeModal);
     }
 
 

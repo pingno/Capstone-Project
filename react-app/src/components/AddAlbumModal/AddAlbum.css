@@ -1,0 +1,23 @@
+.loading-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+.create-album-container label{
+    padding-bottom: 8px;
+    
+}
+
+.create-album-container input{
+    height: 20px;
+}
+
+.ca-1{
+    font-style: italic;
+}

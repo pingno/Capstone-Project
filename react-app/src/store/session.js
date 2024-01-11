@@ -97,7 +97,6 @@ export const signUp = (formData) => async (dispatch) => {
 	} else if (response.status < 500) {
 		const data = await response.json();
 		if (data.errors) {
-			console.log(data.errors)
 			return data.errors;
 		}
 	} else {
@@ -117,7 +116,6 @@ export const fetchAllUsers = () => async(dispatch) => {
 		return users
 	} else {
 		const data = await res.json()
-		console.log(data)
 		return data
 	}
 }
@@ -132,7 +130,6 @@ export const fetchUser = (userId) => async (dispatch) => {
 		return user;
 	} else {
 		const data = await res.json()
-		console.log(data)
 		return data
 	}
 }

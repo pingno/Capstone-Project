@@ -41,7 +41,6 @@ export const fetchAllComments = () => async (dispatch) => {
         return comments
     } else {
         const data = await res.json();
-        console.log(data)
         return data
     }
 }

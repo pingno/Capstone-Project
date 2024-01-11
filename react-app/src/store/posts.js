@@ -62,7 +62,6 @@ export const fetchRemoveLike = (post) => async (dispatch) => {
         method: "DELETE"
     })
     if(res.ok) {
-        console.log("REMOVE LIKE RES", res)
         const post = await res.json()
         await dispatch(removeLike(post))
         await dispatch(fetchAllPosts())
@@ -83,7 +82,6 @@ export const fetchAllPosts = () => async (dispatch) => {
         return posts
     } else {
         const data = await res.json()
-        console.log(data)
         return data
     }
 }

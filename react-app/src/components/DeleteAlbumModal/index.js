@@ -11,13 +11,13 @@ const DeleteAlbumModal = ({ albumId }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-      dispatch(fetchDeleteAlbum(albumId)).catch(res => console.log(res)).then(closeModal);
+      dispatch(fetchDeleteAlbum(albumId)).then(closeModal);
     }
 
 
   return (
     <div className='delete-modal'>
-      <h2 style={{fontFamily: "Arial"}}>Confirm Delete</h2>
+      <h2 style={{fontFamily: "Arial", justifyContent: "center", display: "flex"}}>Confirm Delete</h2>
       <p style={{fontFamily: "Arial"}}>Are you sure you want to delete this Album?</p>
 
       <div className="login-buttons">

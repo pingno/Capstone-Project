@@ -20,8 +20,10 @@ function AddPostModal( {albumId} ) {
     const [image, setImage] = useState(null)
 
     const [errors, setErrors] = useState({})
-    const [imageLoading, setImageLoading] = useState(false)
+
     const [submitted, yesSubmitted] = useState(false)
+
+    const [loading, setLoading] = useState(false)
 
  
     useEffect(() => {
@@ -47,12 +49,19 @@ function AddPostModal( {albumId} ) {
         form.append("content", content)
         form.append("image", image)
 
-        // setImageLoading(true)
 
+        setLoading(true)
 
-
-        return await dispatch(fetchCreatePost(form, albumId)).then(closeModal())
-
+       
+        dispatch(fetchCreatePost(form, albumId)).then((res) => {
+          setLoading(false)
+        if(res.errors) {
+            setErrors(res.errors)
+        } else {
+            closeModal()
+            yesSubmitted(true)
+        }
+        })
 
     }
 
@@ -118,7 +127,7 @@ function AddPostModal( {albumId} ) {
         <button type="submit">Create Post</button>
             </div>
 
-        {/* {imageLoading && <p>Loading...</p>} */}
+            {loading && <p className="loading-div">Loading...</p>}
 
       </form>
     </>

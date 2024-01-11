@@ -6,6 +6,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 import EditComment from "../EditComment";
 import DeleteComment from "../DeleteComment";
+import "./EDComment.css"
 
 function EDCommentButton({ commentId }) {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function EDCommentButton({ commentId }) {
 
 
   
-  const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+  const ulClassName = "profile-dropdown4" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
   return (

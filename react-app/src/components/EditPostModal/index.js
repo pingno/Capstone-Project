@@ -28,6 +28,8 @@ function EditPostModal( {postId} ) {
     const [imageLoading, setImageLoading] = useState(false)
     const [submitted, yesSubmitted] = useState(false)
 
+    const [loading, setLoading] = useState(false)
+
  
     useEffect(() => {
         dispatch(fetchAllAlbums())
@@ -53,9 +55,18 @@ function EditPostModal( {postId} ) {
         form.append("content", content)
         form.append("image", image)
 
-        // setImageLoading(true)
 
-        return await dispatch(fetchEditPost(form, postId)).then(closeModal())
+        setLoading(true)
+
+        dispatch(fetchEditPost(form, postId)).then((res) => {
+          setLoading(false)
+        if(res.errors) {
+            setErrors(res.errors)
+        } else {
+            closeModal()
+            yesSubmitted(true)
+        }
+        })
 
     }
 
@@ -118,7 +129,7 @@ function EditPostModal( {postId} ) {
         <button type="submit">Update Post</button>
          </div>
 
-        {/* {imageLoading && <p>Loading...</p>} */}
+        {loading && <p className="loading-div">Loading...</p>}
 
       </form>
     </>
