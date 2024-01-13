@@ -93,13 +93,13 @@ function Navigation({ isLoaded }) {
             
           </div>
 
-        <div className="login-buttons">
+        <div className="login-buttons2">
 
             <OpenModalButton
               buttonText="Login"
               modalComponent={<LoginFormModal />}
               />
-
+        
             <OpenModalButton
               buttonText="Sign Up"
               modalComponent={<SignupFormModal />}

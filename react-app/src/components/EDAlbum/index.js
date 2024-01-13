@@ -44,7 +44,7 @@ function EDAlbumButton({ albumId }) {
       </button>
       <ul className={ulClassName} ref={ulRef}>
 
-          <div className="pd2">
+          <div className="profile-dropdown3">
             <OpenModalButton
               buttonText="Edit Album"
               onItemClick={closeMenu}

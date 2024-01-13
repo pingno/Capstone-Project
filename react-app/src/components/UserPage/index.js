@@ -107,12 +107,12 @@ export default function UserPage() {
         )}
       </div>
 
-      <div className="user-albums">
+      <div className="album-posts-container">
         {userAlbums.map((album) => {
           return (
-            <div className="each-album-tile">
+            <div className="each-post-tile">
               <Link to={`/albums/${album.id}`} className="link-image">
-                <img src={album.cover} className="each-album-img" />
+                <img src={album.cover} className="album-page-post-image" />
                 {/* <div>{album.description}</div> */}
               </Link>
 
@@ -121,7 +121,7 @@ export default function UserPage() {
               </Link>
 
               {sessionUser && sessionUser.id == user.id ? (
-                <div className="login-buttons">
+                <div className="threedot">
                   <EDAlbumButton albumId={album.id} />
                 </div>
               ) : (

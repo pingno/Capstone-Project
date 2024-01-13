@@ -159,7 +159,7 @@ export default function AlbumPage() {
               <div className="album-page-post-headline">{post.headline}</div>
 
               {sessionUser && sessionUser.id == album.user_id ? (
-                <div className="login-buttons" title="edit/delete post">
+                <div className="threedot" title="edit/delete post">
                   <EDPostButton postId={post.id} />
                 </div>
               ) : (

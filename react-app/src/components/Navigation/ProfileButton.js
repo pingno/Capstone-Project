@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -12,6 +12,8 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
   const history = useHistory()
+
+  const sessionUser = useSelector((state) => state.session.user)
 
   const openMenu = () => {
     if (showMenu) return;
@@ -34,6 +36,7 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
+    setShowMenu(false)
     history.push('/')
     dispatch(logout());
   };
@@ -49,19 +52,37 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
+
+            <div className="dropdown1">
+
+              <div className="ddpic">
+              <Link to={`/users/${sessionUser.id}`}>
+          <img src={sessionUser.profile_image} style={{border: "2px solid black", borderRadius: "50%", height: "50px", width: "50px", objectFit: "cover", marginBottom: "10px"}}/>
+          </Link>
+              </div>
+
+              <div className="ddstuff">
+              <li style={{paddingBottom: "3px", fontWeight: "bold"}}>{user.username}</li>
+              <li style={{paddingBottom: "10px", fontSize: "14px"}}>{user.email}</li>
+              </div>
+
+            </div>
+
+
+{/* 
             <li style={{fontWeight: "bold", textAlign: 'left', paddingBottom: "3px"}}>Username</li>
             <li style={{paddingBottom: "3px"}}>{user.username}</li>
             <li style={{fontWeight: "bold", textAlign: 'left', paddingBottom: "3px"}}>Email</li>
-            <li style={{paddingBottom: "10px"}}>{user.email}</li>
+            <li style={{paddingBottom: "10px"}}>{user.email}</li> */}
             
-              <Link to={`/users/${user.id}`} className="dropdown-link">My Page</Link>
+            <div style={{border: "1px solid black", marginBottom: "6px", width: "100%"}}></div>
 
-              
-            
+              <Link to={`/users/${user.id}`} className="dropdown-link">Your Page</Link>
+
+              <div style={{border: "1px solid lightgrey", marginTop: "6px"}}></div>
 
 
-
-            <li className="login-buttons">
+            <li className="lb2">
               <button onClick={handleLogout}>Log Out</button>
             </li>
           </>
