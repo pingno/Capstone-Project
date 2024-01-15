@@ -151,6 +151,7 @@ export default function AlbumPage() {
       <div className="album-posts-container">
         {albumPosts.map((post) => {
           return (
+            <div className="album-albums">
             <div key={post.id} className="each-post-tile">
               <Link to={`/posts/${post.id}`}>
                 <img src={post.image} className="album-page-post-image" />
@@ -165,6 +166,7 @@ export default function AlbumPage() {
               ) : (
                 <div></div>
               )}
+            </div>
             </div>
           );
         })}

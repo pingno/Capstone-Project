@@ -106,10 +106,13 @@ export default function UserPage() {
           <div></div>
         )}
       </div>
+<div className="album-albums">
+
 
       <div className="album-posts-container">
         {userAlbums.map((album) => {
           return (
+            <div className="album-albums">
             <div className="each-post-tile">
               <Link to={`/albums/${album.id}`} className="link-image">
                 <img src={album.cover} className="album-page-post-image" />
@@ -128,9 +131,13 @@ export default function UserPage() {
                 <div></div>
               )}
             </div>
+            </div>
           );
         })}
       </div>
+
+      </div>
+
     </>
   );
 }

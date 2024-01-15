@@ -97,6 +97,8 @@
 
     margin-bottom: 60px;
     padding-top: 25px;
+
+
 }
 
 
@@ -121,7 +123,7 @@
 
 .album-page-post-image{
     width: 400px;
-    height: 300px;
+    height: 400px;
     border-radius: 20px;
     object-fit: cover;
  
@@ -178,4 +180,12 @@
 
 .threedot button:hover{
     border: 1px solid black;
+}
+
+
+.album-albums{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
