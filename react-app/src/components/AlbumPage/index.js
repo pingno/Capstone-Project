@@ -80,7 +80,7 @@ export default function AlbumPage() {
             <div className="atop2">
 
             <Link to={`/users/${album.user_id}`} className="created-by">
-              Created by {users[album.user_id].username}
+              @{users[album.user_id].username}
             </Link>
 
             <div className="album-top3">
