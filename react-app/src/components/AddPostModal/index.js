@@ -75,6 +75,7 @@ function AddPostModal( {albumId} ) {
   return (
     <div style={{margin: "25px"}}>
       <h1>Create Post</h1>
+      <div className="ca-2">Posts are meant to show the process of your journey</div>
       <form onSubmit={handleSubmit} encType="multipart/form-data" >
         <ul>
           {/* {errors.map((error, idx) => (

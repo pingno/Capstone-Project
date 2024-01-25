@@ -65,6 +65,9 @@ export default function AlbumPage() {
 
   return (
     <>
+
+      
+
       <div className="album-container">
         <div className="album-1">
           <img src={album.cover} />

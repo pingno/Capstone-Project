@@ -97,7 +97,7 @@ function AddAlbumModal(userId) {
   return (
     <div className="create-album-container">
       <h1 className="ca-1">Create a new album</h1>
-      <div className="ca-2"></div>
+      <div className="ca-2">Albums are meant to share the start of your journey.</div>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <ul>
           {/* {errors.map((error, idx) => (
