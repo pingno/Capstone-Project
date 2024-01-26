@@ -23,6 +23,8 @@ export default function AlbumsList() {
 
 
   return (
+  <>
+ 
     <div className="albums-list">
       <div className="albums-container">
         {albums.map((album) => {
@@ -66,5 +68,6 @@ export default function AlbumsList() {
         })}
       </div>
     </div>
+    </>
   );
 }

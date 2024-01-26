@@ -68,8 +68,9 @@
 }
 
 .album-user-image{
-    height: 25px;
-    width: 25px;
+    
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     border: 1px solid black;
     
@@ -81,6 +82,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding-top: 7px;
 }
 
 
