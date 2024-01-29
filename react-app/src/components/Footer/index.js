@@ -10,7 +10,7 @@ function Footer(){
         
         <div className="footer-container">
 
-            <div style={{paddingBottom: "8px"}}>
+            <div style={{paddingBottom: "15px"}}>
                 Dayze
             created by Peang Ngo
                 </div>
