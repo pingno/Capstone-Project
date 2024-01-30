@@ -54,6 +54,10 @@ margin-bottom: 10px;
     margin-bottom: 15px;
     font-family: arial;
     font-weight: bold;
+
+    border-radius: 25px;
+    border: 2px solid rgb(0, 214, 252);
+    padding: 16px;
     
 }
 
