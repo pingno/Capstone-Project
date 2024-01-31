@@ -61,10 +61,17 @@
 .album-top3{
     display: flex;
     justify-content: space-between;
+
+    border-radius: 25px;
+    border: 2px solid rgb(0, 214, 252);
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+  
 }
 
 .album-top3 > div{
-    margin: 20px;
+    margin: 12px;
     font-weight: bold;
 }
 
